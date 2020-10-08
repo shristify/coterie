@@ -5,14 +5,8 @@ Team Insomniacs
 Project Coterie
 Members
 Shristi Singh 
-Reg no- 20194002
-Contact no - +91 90267 54395
 Vineeta Singh
-Reg no- 20194001
-Contact no - +91 70805 35551
-Prajjwal Sharma
-Reg no- 20192089
-Contact no - +91 77708 78986
+\Prajjwal Sharma
 Problem Statement
 Social Gaming Platform - Coterie
 Implementing a fully functional social platform supporting various multimedia, photos, videos, live streams, for powerful gaming but not restricted to, essentially ringing the creative community closer than ever to their audience.
@@ -38,24 +32,5 @@ Advanced:
 7. Request to message users (accept/reject)
 
 USP :  What makes our project different ?
-Switch between Themes
-Interactive UI
-Stories section for  creators
-No subscriber limit for live streaming
-Special Bounty Badges
-Tech Stack
-React JS
-Router - for connecting various pages
-Redux, Hooks - for chat
-Video Js - for video player
-Material UI - for icons and various other frontend
-Fuse js for searching
-Firebase Authentication 
-Firebase Realtime database 
-Razorpay/Stripe integration for payment
-Aws live interaction service for hosting live stream / MongoDB
-Websockets and WebRTC
-(Other tentative requirement Stack)
-Sample wireframe below:
-
+Hidden
 GitHub:  https://github.com/confusedcoder1/coterie
