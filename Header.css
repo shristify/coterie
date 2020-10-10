@@ -1,0 +1,63 @@
+.header{
+    height: 60px;
+    display: flex !important;
+    align-items: center;
+    background-color: #131921;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    color: white;
+}
+.headerSearch{
+
+    display:flex;
+    margin-left: 60px;
+    align-items: center;
+    border-radius: 24px;
+    width:50%;
+}
+.headerSearchInput{
+    margin-left: 20px;
+    padding: 10px;
+    border: none;
+    height: 8px;
+    width:100%;
+    
+}
+.headerSearchIcon{
+    padding: 5px;
+    height: 22px !important;
+    margin-right: 60px;
+}
+.headerMenu{
+    margin-left: 15px;
+}
+.headerLogo{
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+.headerOptions{
+    display: flex;
+}
+.headerNoti{
+    
+    font-size: 2rem;
+    margin-right: 40px;
+}
+.headerSignin{
+    margin-right: 100px;
+    font-size: 1.35rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.headerSetting{
+    margin-right: 40px;
+    font-size: 2rem;
+}
+.headerProfile{
+    font-size: 2rem;
+}
+.headerVideoCallIcon{
+    margin-right: 40px;
+    margin-top: 10px;
+}
