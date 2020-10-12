@@ -12,7 +12,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import {Button, Input} from '@material-ui/core'
 import Sidebar from './Sidebar'
-
+import IconButton from '@material-ui/core/IconButton';
+import {Link} from "react-router-dom";
 function getModalStyle() {
     const top = 50;
     const left = 50;
@@ -127,10 +128,10 @@ function Header() {
         </div>
             <div className="headerOptions">
           
-            <div className="headerVideoCallIcon"><VideoCallIcon  color="secondary"/></div>
-            <div className="headerNoti"> <NotificationsIcon  color="secondary"/></div>
-            <div className="headerSetting"><SettingsIcon  color="secondary"/></div> 
-            <div className="headerProfile"><AccountCircleIcon  color="secondary"/></div>
+            <div className="headerVideoCallIcon"><IconButton color="secondary" aria-label="Home"><VideoCallIcon  color="secondary"/></IconButton></div>
+            <div className="headerNoti"> <IconButton color="secondary" aria-label="Home"><NotificationsIcon  color="secondary"/></IconButton></div>
+            <div className="headerSetting"><IconButton color="secondary" aria-label="Home"><SettingsIcon  color="secondary"/></IconButton></div> 
+            <div className="headerProfile"><IconButton color="secondary" aria-label="Home"><AccountCircleIcon  color="secondary"/></IconButton></div>
             <div className="signIn">
             
             <Modal
@@ -183,4 +184,4 @@ function Header() {
     );
 }
 
-export default Header 
+export default Header

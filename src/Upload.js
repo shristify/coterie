@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import {Button, Input} from '@material-ui/core'
 import {db, auth,storage} from "./firebase";
 import firebase from "firebase";
+import CircularProgress from '@material-ui/core/CircularProgress';
 function Upload({username}) {
     const [caption, setCaption]=useState('')
     const [progress, setProgress]=useState(0)
