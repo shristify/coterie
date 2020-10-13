@@ -1,0 +1,23 @@
+.sidebar{
+    height: 600px;
+    display: flex;
+    align-items: center;
+    background-color: #131921;
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    color: white;
+    width: 5%;
+    border-right: 0.5px solid grey;
+}
+.sidebarOptions{
+    align-items: center;
+    display: block;
+    margin-top: 0px;
+}
+.HomeIcon{
+    margin-top: 0px;
+}
+.chat{
+    margin-top: 100px;
+}
