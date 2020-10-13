@@ -1,0 +1,9 @@
+.post{
+    max-width: 500px;
+    border: 5px solid grey;
+}
+.PostImage{
+    width:100%;
+    object-fit:contain;
+    height: 400px;
+}
