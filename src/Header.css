@@ -89,3 +89,7 @@
 .appSignUp{
     display: flex;
     flex-direction: column;}
+.Google{
+    text-align: center;
+    width: 100%;
+}

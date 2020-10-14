@@ -14,6 +14,7 @@ import {Button, Input} from '@material-ui/core'
 import Sidebar from './Sidebar'
 import IconButton from '@material-ui/core/IconButton';
 import {Link} from "react-router-dom";
+import firebase from "firebase"
 function getModalStyle() {
     const top = 50;
     const left = 50;
@@ -104,8 +105,21 @@ function Header() {
       
     })
     .catch((error)=>alert(error.message))
-    
     }
+
+    const signinwithgoogle=()=>{
+      const provider=new firebase.auth.GoogleAuthProvider()
+      auth.signInWithPopup(provider).then((authUser)=>{
+        alert('signed in successfully')
+        return authUser.user.updateProfile({
+          displayName:username
+          
+        })
+        
+      })
+      .catch((error)=>alert(error.message))
+    }
+
     const handleCloseAgain = () => {
       setOpenSignin(false);
     };
@@ -169,7 +183,10 @@ function Header() {
       value = {email } onChange={(e)=>setEmail(e.target.value)} ></Input>
       <Input placeholder="Password" type="password" 
       value = {password } onChange={(e)=>setPassword(e.target.value)} ></Input>
-        <Button onClick={signin} color="secondary">SignIn</Button></div>
+        <Button onClick={signin} variant="contained" color="secondary">SignIn</Button></div>
+        <br></br>
+        <Button className="Google"
+        onClick={signinwithgoogle} variant="contained" color="primary">Sign in with Google</Button>
         </div>
       </Modal>
 
