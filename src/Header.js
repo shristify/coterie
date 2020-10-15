@@ -120,6 +120,19 @@ function Header() {
       .catch((error)=>alert(error.message))
     }
 
+    const signinwithfacebook=()=>{
+      const provider=new firebase.auth.FacebookAuthProvider()
+      auth.signInWithPopup(provider).then((authUser)=>{
+        alert('signed in successfully')
+        return authUser.user.updateProfile({
+          displayName:username
+          
+        })
+        
+      })
+      .catch((error)=>alert(error.message))
+    }
+
     const handleCloseAgain = () => {
       setOpenSignin(false);
     };
@@ -187,6 +200,9 @@ function Header() {
         <br></br>
         <Button className="Google"
         onClick={signinwithgoogle} variant="contained" color="primary">Sign in with Google</Button>
+        <hr></hr>
+        <Button className="Google"
+        onClick={signinwithfacebook} variant="contained" color="primary">Sign in with facebook</Button>
         </div>
       </Modal>
 

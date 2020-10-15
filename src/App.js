@@ -11,6 +11,11 @@ import Messages from "./Messages"
 import Trending from "./Trending"
 import {Button, Input} from '@material-ui/core'
 import {useAuthState} from 'react-firebase-hooks/auth'
+import ReactPlayer from 'react-player'
+import VideoPlayer from 'react-video-js-player'
+import Connect from "./Connect"
+import HomePage from "./HomePage"
+
 function App() {
   const [posts,setPosts]=useState([])
   const[user]=useAuthState(auth)
@@ -35,29 +40,17 @@ function App() {
     <Route path ="/messages">
        <Messages/>
      </Route>
-
-      <Route path="/">
-     <div className="appPage">
-       <Sidebar/>
-       <div className="appPageFinal">
-     <Upload/>
-      
-
-{
-posts.map(post => (
-<Post caption={post.caption} 
-imageUrl={post.imageUrl} ></Post>
-
-
-))
-}</div>
-     </div>
-     </Route>
-
-    <Route path="/trending">
+     <Route path="/trending">
       <Trending/>
     </Route>
+    <Route path="/connect">
+      <Connect/>
+    </Route>
+      <Route path="/">
+     <HomePage/>
+     </Route>
 
+    
      </Switch>
     {/*sidebar */}
  

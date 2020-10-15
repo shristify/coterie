@@ -4,11 +4,13 @@ import {db, auth,storage} from "./firebase";
 import firebase from "firebase";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { useAuthState } from 'react-firebase-hooks/auth';
-function Upload() {
+import LinearProgress from '@material-ui/core/LinearProgress';
+function Upload({username}) {
     const [caption, setCaption]=useState('')
     const [progress, setProgress]=useState(0)
     const [image, setImage]=useState(null)
     const [user]=useAuthState(auth)
+    
     
     const handleChange=(e)=>{
         if(e.target.files[0]){
@@ -18,6 +20,7 @@ function Upload() {
 
     const handleUpload=()=>{
         const uploadTask = storage.ref(`images/${image.name}`).put(image);
+        const{displayName, photoURL}=auth.currentUser
         uploadTask.on(
           "state_changed",
           snapshot => {
@@ -40,7 +43,7 @@ function Upload() {
                     timestamp:firebase.firestore.FieldValue.serverTimestamp(),
                     caption:caption,
                     imageUrl:url,
-                    
+                    username:displayName
 
                 
                 })
@@ -61,7 +64,7 @@ function Upload() {
 
 { user?(<div className="uploadTask">
 
-<progress value={progress} max='100' />
+<LinearProgress variant="determinate" color="secondary" value={progress}/>
       <input type="text" placeholder="enter caption"
       onChange={event => setCaption(event.target.value)} value={caption}></input>
       <input type="file" onChange={handleChange}></input>
