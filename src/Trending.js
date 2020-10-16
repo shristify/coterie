@@ -5,7 +5,7 @@ function Trending() {
     return (
         <div className="trending">
             <Sidebar/>
-            <h2>Im trending</h2>
+           {/*fetch twitch api stuff here*/}
         </div>
     )
 }

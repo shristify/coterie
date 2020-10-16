@@ -4,20 +4,24 @@ import {useCollectionData} from 'react-firebase-hooks/firestore'
 import {db,auth} from './firebase'
 import firebase from "firebase";
 import { Button } from '@material-ui/core'
+import "./ChatRoom.css"
+
 function ChatRoom() {
 
     const msgRef=db.collection('Messages') /*creates reference in firebase */
-    const query=msgRef.orderBy('AtTime').limit(25)
+    const query=msgRef.orderBy('AtTime')
     const [messages]=useCollectionData(query ,{idField: 'id'})
     const[formInput, setFormInput]=useState('')
     
     const sendMsg=async(e)=>{
        e.preventDefault()
-       const {uid}=auth.currentUser
+       const {uid,photoURL, displayName}=auth.currentUser
        await msgRef.add({
          text:formInput,
          AtTime:  firebase.firestore.FieldValue.serverTimestamp(),
-         uid
+         uid,
+         photoURL,
+         displayName
        })
        setFormInput('')
     }
@@ -34,13 +38,14 @@ function ChatRoom() {
 }
 
 function ChatMessage(props){
- const {text,uid}=props.message
+ const {text,uid,photoURL,displayName}=props.message
 
  const compareUser=uid=== auth.currentUser.uid ? ('sent'):('recieved')
  return (
   <div className={'message $ {compareUser}'}>
-  
-  <p>{text}</p></div>
+  <img src ={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'}/>
+ <p>{displayName}
+  {text}</p></div>
  )
 }
 

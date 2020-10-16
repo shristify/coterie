@@ -9,14 +9,12 @@ import ChatRoom from "./ChatRoom"
 
 function Messages() {
     const[user]=useAuthState(auth)
-
-    
     return (
         <div className="message">
             <Sidebar/>
             
             <div className="messageBody">
-            <h1>i m a message</h1> 
+            <h1>Send Messages</h1> 
     { user?(<ChatRoom/>):(<Button 
     
     variant="contained" color="primary">Sign in</Button>)}</div>
