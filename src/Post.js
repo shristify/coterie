@@ -8,7 +8,7 @@ function Post({username, caption, imageUrl}) {
             <img className="PostImage" src={imageUrl}></img>
               {/*username+caption */}
     <h4>{username}</h4>
-    <h5>{caption}</h5>
+    <h5 style={{fontFamily: 'Open sans'}}>{caption}</h5>
         </div>
     )
 }
