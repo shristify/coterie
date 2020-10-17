@@ -15,7 +15,7 @@ import Sidebar from './Sidebar'
 import IconButton from '@material-ui/core/IconButton';
 import {Link} from "react-router-dom";
 import firebase from "firebase"
-import Login from "./Login"
+import Login from "./Login";
 function getModalStyle() {
     const top = 50;
     const left = 50;
@@ -36,7 +36,7 @@ function getModalStyle() {
       padding: theme.spacing(2, 4, 3),
     },
   }));
-  
+ 
 function Header() {
     const classes = useStyles();
     const [posts,setPosts]=useState([])
@@ -135,15 +135,14 @@ function Header() {
       setOpenSignin(false);
     };
     return (
-
         <div className ="header" > 
       {/*<Button onClick={() => setOpen(true)} >SignUp</Button>*/}
-        <div className="headerLogo"><h1>Coterie</h1></div>
+        <div className="headerLogo"><h1 style={{fontFamily:'Amatic SC'}}>Coterie</h1></div>
         {/*<img className="headerLogo" src="https://www.coteriefashionevents.com/content/dam/Informa/
          coteriefashion/en/COTERIE_0920_DTE_nodates_header_1880x300.jpg" />*/}
 
-<div className="headerSearch">
-                <input className='headerSearchInput' type='text' />
+<div className="headerSearch" >
+                <input className='headerSearchInput'type='text' />
                 <SearchIcon color ="secondary" className="headerSearchIcon" /> 
                 {/*logo*/}
         </div>
