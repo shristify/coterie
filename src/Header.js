@@ -136,7 +136,7 @@ function Header() {
     };
     return (
 
-        <div className ="header"> 
+        <div className ="header" > 
       {/*<Button onClick={() => setOpen(true)} >SignUp</Button>*/}
         <div className="headerLogo"><h1>Coterie</h1></div>
         {/*<img className="headerLogo" src="https://www.coteriefashionevents.com/content/dam/Informa/
@@ -149,8 +149,8 @@ function Header() {
         </div>
 <div className="headerOptions"> 
 <div className="headerVideoCallIcon"><IconButton color="secondary" aria-label="Home"><VideoCallIcon  color="secondary"/></IconButton></div>
-<div className="headerNoti"> <IconButton color="secondary" aria-label="Home"><NotificationsIcon  color="secondary"/></IconButton></div>
-<div className="headerSetting"><IconButton color="secondary" aria-label="Home"><SettingsIcon  color="secondary"/></IconButton></div> 
+<div  className="headerNoti"> <IconButton color="secondary" aria-label="Home"><NotificationsIcon  color="secondary"/></IconButton></div>
+<div  className="headerSetting"><IconButton color="secondary" aria-label="Home"><SettingsIcon  color="secondary"/></IconButton></div> 
 <div className="headerProfile"><IconButton color="secondary" aria-label="Home"><AccountCircleIcon  color="secondary"/></IconButton></div>
 <div className="signIn">
 <Modal
@@ -203,7 +203,7 @@ value = {password } onChange={(e)=>setPassword(e.target.value)} ></Input>
           </div>)}  </div>
           </div>
           </div>
-         
+          
          
     );
 
