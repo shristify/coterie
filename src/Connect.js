@@ -21,6 +21,7 @@ function Connect() {
         <div>
             <div className="appPage">
        <Sidebar/>
+       <Header/>
        <div className="appPageFinal">
      <Upload/>
       
