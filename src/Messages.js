@@ -12,9 +12,9 @@ function Messages() {
     return (
         <div className="message">
             <Sidebar/>
-            <div style={{width:"100%"}}><Header/>
+            <div ><Header/>
             <div className="messageBody">
-            <h1>Send Messages</h1> 
+            <h1 style={{display:'block', fontFamily:"Amatic SC"}}>Send Messages</h1> 
     { user?(<ChatRoom/>):
     (<Button variant="contained" color="primary">Sign in</Button>)}</div>
         </div>
