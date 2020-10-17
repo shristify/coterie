@@ -13,19 +13,19 @@ export default function Sidebar() {
         <div className="sidebarOptions">
              <Link to="/">
              <IconButton color="secondary" aria-label="Home">
-        <HomeIcon fontSize="large"/>
+        <HomeIcon fontSize="medium"/>
       </IconButton></Link>
       <Link to="/messages">
       <IconButton className="chat" color="secondary" aria-label="Chat">
-        <ChatIcon fontSize="large"/>
+        <ChatIcon fontSize="medium"/>
       </IconButton></Link>
       <Link to="/trending">
       <IconButton className="trending" color="secondary" aria-label="trending">
-        <WhatshotIcon fontSize="large" />
+        <WhatshotIcon fontSize="medium" />
       </IconButton></Link>
       <Link to="/connect">
       <IconButton className="connect" color="secondary" aria-label="trending">
-        <PeopleIcon fontSize="large" />
+        <PeopleIcon fontSize="medium" />
       </IconButton></Link>
         </div>
         </div>
