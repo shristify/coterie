@@ -11,10 +11,11 @@ import {db, auth} from "./firebase";
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import {Button, Input} from '@material-ui/core'
-//import Sidebar from './Sidebar'
+import Sidebar from './Sidebar'
 import IconButton from '@material-ui/core/IconButton';
 import {Link} from "react-router-dom";
 import firebase from "firebase"
+import Login from "./Login"
 function getModalStyle() {
     const top = 50;
     const left = 50;
@@ -28,7 +29,7 @@ function getModalStyle() {
   const useStyles = makeStyles((theme) => ({
     paper: {
       position: 'absolute',
-      width: 400,
+      width: '100%',
       backgroundColor: theme.palette.background.paper,
       border: '2px solid #000',
       boxShadow: theme.shadows[5],
@@ -141,68 +142,70 @@ function Header() {
         {/*<img className="headerLogo" src="https://www.coteriefashionevents.com/content/dam/Informa/
          coteriefashion/en/COTERIE_0920_DTE_nodates_header_1880x300.jpg" />*/}
 
-        <div className="headerSearch">
+<div className="headerSearch">
                 <input className='headerSearchInput' type='text' />
                 <SearchIcon color ="secondary" className="headerSearchIcon" /> 
                 {/*logo*/}
         </div>
-            <div className="headerOptions"> 
+<div className="headerOptions"> 
 <div className="headerVideoCallIcon"><IconButton color="secondary" aria-label="Home"><VideoCallIcon  color="secondary"/></IconButton></div>
 <div className="headerNoti"> <IconButton color="secondary" aria-label="Home"><NotificationsIcon  color="secondary"/></IconButton></div>
 <div className="headerSetting"><IconButton color="secondary" aria-label="Home"><SettingsIcon  color="secondary"/></IconButton></div> 
-{/* <div className="headerProfile"><IconButton color="secondary" aria-label="Home"><AccountCircleIcon  color="secondary"/></IconButton></div>*/}
-<div className="signIn">
-      <Modal
-        open={open}
-        onClose={handleClose}
-      >
-       <div style={modalStyle} className={classes.paper}>
-      <div className="appSignUp">
-      <h2>Sign Up</h2>
-      <h4>for Coterie</h4>
-      <Input placeholder="Username" type="username" 
-      value = {username} onChange={(e)=>setUsername(e.target.value)} ></Input>
-      <Input placeholder="Email" type="text" 
-      value = {email } onChange={(e)=>setEmail(e.target.value)} ></Input>
-      <Input placeholder="Password" type="password" 
-      value = {password } onChange={(e)=>setPassword(e.target.value)} ></Input>
-        <Button onClick={signup} >SignUp</Button></div>
-        </div>
-      </Modal>
+<div className="headerProfile"><IconButton color="secondary" aria-label="Home"><AccountCircleIcon  color="secondary"/></IconButton></div>
 
-      <Modal
-        open={openSignin}
-        onClose={handleCloseAgain}
-      >
-       <div style={modalStyle} className={classes.paper}>
-      <div className="appSignUp">
-      <h2>
-        Sign In
-      </h2>
-      <h4>to your Coterie Account</h4>
-      
-      <Input placeholder="Email" type="text" 
-      value = {email } onChange={(e)=>setEmail(e.target.value)} ></Input>
-      <Input placeholder="Password" type="password" 
-      value = {password } onChange={(e)=>setPassword(e.target.value)} ></Input>
-        <Button onClick={signin} variant="contained" color="secondary">SignIn</Button></div>
-        <br></br>
-        <Button className="Google"
-        onClick={signinwithgoogle} variant="contained" color="primary">Sign in with Google</Button>
-        <hr></hr>
-        <Button className="Google"
-        onClick={signinwithfacebook} variant="contained" color="primary">Sign in with facebook</Button>
-        </div>
-      </Modal>
  {user ? (<div className="logoutButton"><Button variant="contained"  onClick={() => auth.signOut()} color="secondary" >Logout</Button></div>):
     (<div className="loginContainer">
-   <Button  onClick={() => setOpen(true)} variant="contained" color="secondary" >SignUp</Button>
-    <Button onClick={() => setOpenSignin(true)} variant="contained"  color="secondary">SignIn</Button></div>)}
+   {/*<Button  onClick={() => setOpen(true)} variant="contained" color="secondary" >SignUp</Button>
+    <Button onClick={() => setOpenSignin(true)} variant="contained"  color="secondary">SignIn</Button>
+        */}   </div>)}  </div>
             </div>
-            </div>
-         </div>
+         
          
     );
 }
+{/*<div className="signIn">
+<Modal
+  open={open}
+  onClose={handleClose}
+>
+ <div style={modalStyle} className={classes.paper}>
+<div className="appSignUp">
+<h2>Sign Up</h2>
+<h4>for Coterie</h4>
+<Input placeholder="Username" type="username" 
+value = {username} onChange={(e)=>setUsername(e.target.value)} ></Input>
+<Input placeholder="Email" type="text" 
+value = {email } onChange={(e)=>setEmail(e.target.value)} ></Input>
+<Input placeholder="Password" type="password" 
+value = {password } onChange={(e)=>setPassword(e.target.value)} ></Input>
+  <Button onClick={signup} >SignUp</Button></div>
+  </div>
+</Modal>
 
+<Modal
+  open={openSignin}
+  onClose={handleCloseAgain}
+>
+ <div style={modalStyle} className={classes.paper}>
+<div className="appSignUp">
+<h2>
+  Sign In
+</h2>
+<h4>to your Coterie Account</h4>
+
+<Input placeholder="Email" type="text" 
+value = {email } onChange={(e)=>setEmail(e.target.value)} ></Input>
+<Input placeholder="Password" type="password" 
+value = {password } onChange={(e)=>setPassword(e.target.value)} ></Input>
+  <Button onClick={signin} variant="contained" color="secondary">SignIn</Button></div>
+  <br></br>
+  <Button className="Google"
+  onClick={signinwithgoogle} variant="contained" color="primary">Sign in with Google</Button>
+  <hr></hr>
+  <Button className="Google"
+  onClick={signinwithfacebook} variant="contained" color="primary">Sign in with facebook</Button>
+  </div>
+</Modal>*/}
 export default Header
+
+
