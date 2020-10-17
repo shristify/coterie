@@ -7,7 +7,8 @@
     top: 0;
     z-index: 100;
     color: white;
-    border-bottom: 1px solid grey;
+    width: 100%;
+        border-bottom: 1px solid grey;
     
     /* Small Devices, Tablets */
   @media only screen and (min-width : 768px) {
@@ -21,6 +22,7 @@
     background-color: pink;
   }
 }
+
 .headerSearch{
 
     display:flex;
