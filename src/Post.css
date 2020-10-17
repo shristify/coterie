@@ -8,6 +8,7 @@
     height: 400px;
 }
 body {
+    font-family: 'Open Sans', sans-serif;
     overflow-y: scroll;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
