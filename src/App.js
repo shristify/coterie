@@ -7,17 +7,18 @@ import { withRouter } from 'react-router-dom'
 
 import Post from './Post'
 import './App.css';
+
 import {db,auth} from './firebase'
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Messages from "./Messages"
 import Trending from "./Trending"
 import {Button, Input} from '@material-ui/core'
-import {useAuthState} from 'react-firebase-hooks/auth'
+import {useAuthState} from 'react-firebase-hooks/auth';
 import ReactPlayer from 'react-player'
 import VideoPlayer from 'react-video-js-player'
-import Connect from "./Connect"
-import Login from "./Login"
-import HomePage from "./HomePage"
+import Connect from "./Connect";
+import Login from "./Login";
+import HomePage from "./HomePage";
 
 function App() {
   const [posts,setPosts]=useState([])
