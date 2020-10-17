@@ -152,18 +152,7 @@ function Header() {
 <div className="headerNoti"> <IconButton color="secondary" aria-label="Home"><NotificationsIcon  color="secondary"/></IconButton></div>
 <div className="headerSetting"><IconButton color="secondary" aria-label="Home"><SettingsIcon  color="secondary"/></IconButton></div> 
 <div className="headerProfile"><IconButton color="secondary" aria-label="Home"><AccountCircleIcon  color="secondary"/></IconButton></div>
-
- {user ? (<div className="logoutButton"><Button variant="contained"  onClick={() => auth.signOut()} color="secondary" >Logout</Button></div>):
-    (<div className="loginContainer">
-   {/*<Button  onClick={() => setOpen(true)} variant="contained" color="secondary" >SignUp</Button>
-    <Button onClick={() => setOpenSignin(true)} variant="contained"  color="secondary">SignIn</Button>
-        */}   </div>)}  </div>
-            </div>
-         
-         
-    );
-}
-{/*<div className="signIn">
+<div className="signIn">
 <Modal
   open={open}
   onClose={handleClose}
@@ -205,7 +194,22 @@ value = {password } onChange={(e)=>setPassword(e.target.value)} ></Input>
   <Button className="Google"
   onClick={signinwithfacebook} variant="contained" color="primary">Sign in with facebook</Button>
   </div>
-</Modal>*/}
+</Modal>
+ {user ? (<div className="logoutButton"><Button variant="contained"  onClick={() => auth.signOut()} color="secondary" >
+   Logout</Button></div>):
+    (<div className="loginContainer">
+   <Button  onClick={() => setOpen(true)} ></Button>
+    <Button onClick={() => setOpenSignin(true)} ></Button>
+          </div>)}  </div>
+          </div>
+          </div>
+         
+         
+    );
+
+}
+
+
 export default Header
 
 
