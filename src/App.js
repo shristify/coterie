@@ -41,7 +41,7 @@ function App() {
       
     <Route exact path="/connect" component={withRouter(Connect)}/>
      
-      <Route exact path="/" component={withRouter(HomePage)}/>  
+     {/*<Route exact path="/" component={withRouter(HomePage)}/>*/}  
       {user?(<HomePage/>):(<Login/>)}
      </Switch>
   
