@@ -1,48 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Open+Sans&display=swap');
+
 .header{
-    height: 60px;
+
+    height: 40px;
     display: flex !important;
     align-items: center;
     background-color: #131921;
     position: fixed;
-    top: 0;
+
+    margin-top:2px;
     z-index: 100;
     color: white;
+
+    margin-right: 0;
     width: 100%;
-        border-bottom: 1px solid grey;
+border-bottom: 1px solid grey;
     
-    /* Small Devices, Tablets */
-  @media only screen and (min-width : 768px) {
-    width: 75%;
-    background-color: green;
-  }
-
-  /* Medium Devices, Desktops */
-  @media only screen and (min-width : 992px) {
-    width: 50%;
-    background-color: pink;
-  }
 }
-
 .headerSearch{
-
     display:flex;
-    margin-left: 60px;
+    margin-left: 10px;
     align-items: center;
-    border-radius: 24px;
+    border-radius: 40px;
     width:50%;
+    min-width: 250px;
+    max-width: 300px;
 }
 .headerSearchInput{
-    margin-left: 20px;
+    margin-left: 10px;
     padding: 10px;
     border: none;
-    height: 8px;
+    height: 10px;
     width:100%;
-    
 }
 .headerSearchIcon{
     padding: 5px;
     height: 22px !important;
-    margin-right: 60px;
+ 
 }
 .headerMenu{
     margin-left: 15px;
@@ -64,29 +58,31 @@
     margin-right: 10px;
 }
 .headerSignin{
-    margin-right: 100px;
+    margin-right: 50px;
     font-size: 1.35rem;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    font-family: "Amatic SC";
+    margin-top: 8px;
+    top:8px;
+    margin-bottom: 16px;
 }
 .headerSetting{
     margin-right: 10px;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 .headerProfile{
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 .headerVideoCallIcon{
-    margin-right: 10px;
+    margin-right: 5px;
     margin-top:5px;
 }
 .loginContainer{
     margin-top:10px ;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 .logoutButton{
-    margin-top:5px ;
-    margin-left: 50px;
+    margin-top:8px ;
+    margin-left: 10px;
 }
 .appSignUp{
     display: flex;
