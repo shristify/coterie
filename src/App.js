@@ -3,6 +3,8 @@ import Header from './Header'
 import Upload from './Upload'
 import Upload2 from "./Upload2"
 import Sidebar from './Sidebar'
+import { withRouter } from 'react-router-dom'
+
 import Post from './Post'
 import './App.css';
 import {db,auth} from './firebase'
@@ -31,24 +33,18 @@ function App() {
 
   return (
     <Router>
-    <div className="App">
-    {user?(<HomePage/>):(<Login/>)}
-   
-   {/*<Switch>
-    <Route path ="/messages">
-       <Messages/>
-     </Route>
-     <Route path="/trending">
-      <Trending/>
-    </Route>
-    <Route path="/connect">
-      <Connect/>
-    </Route>
-      <Route path="/">
-     <HomePage/>
-     </Route>
-    </Switch>*/}
-
+    <div className="App" >  
+  
+      <Switch>
+    <Route  path ="/messages" component={withRouter(Messages)}/>
+     <Route  path="/trending" component={withRouter(Trending)}/>
+      
+    <Route exact path="/connect" component={withRouter(Connect)}/>
+     
+      <Route exact path="/" component={withRouter(HomePage)}/>  
+      {user?(<HomePage/>):(<Login/>)}
+     </Switch>
+  
     </div>
     </Router>
   );
