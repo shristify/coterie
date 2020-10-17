@@ -4,7 +4,6 @@ import {db, auth} from "./firebase";
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import {Button, Input} from '@material-ui/core'
-//import Sidebar from './Sidebar'
 import {Link} from "react-router-dom";
 import firebase from "firebase"
 import Sidebar from "./Sidebar"
@@ -129,24 +128,41 @@ function Login() {
     return (
 
         <div className="login">
-           <h1>I WAS HERE</h1>
            <div className="signIn">
       <Modal
         open={open}
         onClose={handleClose}
       >
-       <div style={modalStyle} className={classes.paper}>
+   <div style={modalStyle} className={classes.paper}>
       <div className="appSignUp">
-      <h2>Sign Up</h2>
-      <h4>for Coterie</h4>
-      <Input placeholder="Username" type="username" 
+    <div className="header">Register</div>
+      
+ <div className="form">
+ <div className="form-group">
+ <label>Username</label>
+ <Input placeholder="Username" type="username" 
       value = {username} onChange={(e)=>setUsername(e.target.value)} ></Input>
-      <Input placeholder="Email" type="text" 
+
+            <div className="form-group">
+              <label>Email</label>
+             <Input placeholder="Email" type="text" 
       value = {email } onChange={(e)=>setEmail(e.target.value)} ></Input>
-      <Input placeholder="Password" type="password" 
+      </div>
+  <div className="form-group">
+              <label>Password</label>
+            <Input placeholder="Password" type="password" 
       value = {password } onChange={(e)=>setPassword(e.target.value)} ></Input>
-        <Button onClick={signup} >SignUp</Button></div>
+      </div>
+ <div className="footer">
+   <Button onClick={signup} variant="outlined" color="secondary" >
+     Sign Up</Button>
+     </div>
+
+     </div>
         </div>
+        </div>
+        </div>
+        
       </Modal>
 
       <Modal
@@ -155,32 +171,38 @@ function Login() {
       >
        <div style={modalStyle} className={classes.paper}>
       <div className="appSignUp">
-      <h2>
-        Sign In
-      </h2>
-      <h4>to your Coterie Account</h4>
-      
+      <div className="header">Log In</div>
+      <div className="form">
+      <div className="form-group">
+              <label>Email</label>
       <Input placeholder="Email" type="text" 
       value = {email } onChange={(e)=>setEmail(e.target.value)} ></Input>
+      </div>
+      <div className="footer">
       <Input placeholder="Password" type="password" 
       value = {password } onChange={(e)=>setPassword(e.target.value)} ></Input>
-        <Button onClick={signin} variant="contained" color="secondary">SignIn</Button></div>
-        <br></br>
-        <Button className="Google"
-        onClick={signinwithgoogle} variant="contained" color="primary">Sign in with Google</Button>
-        <hr></hr>
-        <Button className="Google"
-        onClick={signinwithfacebook} variant="contained" color="primary">Sign in with facebook</Button>
+        <Button onClick={signin} variant="contained" color="secondary">Log In</Button></div>
         </div>
+        <br></br>
+        </div>
+        </div>
+      
       </Modal>
  {user ? (<div className="logoutButton"><Button variant="contained"  onClick={() => auth.signOut()} color="secondary" >Logout</Button></div>):
     (<div className="loginContainer">
-   <Button  onClick={() => setOpen(true)} variant="contained" color="secondary" >SignUp</Button>
-    <Button onClick={() => setOpenSignin(true)} variant="contained"  color="secondary">SignIn</Button></div>)}
-            </div>
+   <Button  onClick={() => setOpen(true)}  >Sign Up</Button>
+    <Button onClick={() => setOpenSignin(true)} >Sign In</Button></div>)}
+    <Button className="Google"
+        onClick={signinwithgoogle} variant="contained" color="primary">Sign in with Google</Button>
+        <hr></hr>
+     
+        <Button className="Google"
+        onClick={signinwithfacebook} variant="contained" color="primary">Sign in with facebook</Button>
+        </div>
             </div>
           );
 }
+
 
 
 export default Login
