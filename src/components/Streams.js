@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import api from "../api";
+import "../Trending.css";
+
 function Stream() {
   const [channels, setChannels] = useState([]);
   useEffect(() => {
@@ -42,10 +44,10 @@ function Stream() {
   }, []);
   return (
     <div>
-      <h1>Most Popular Live Streams</h1>
+      <h1 className="margo">Most Popular Live Streams</h1>
       <div className="row">
         {channels.map(channel => (
-          <div className="col-lg-4 col-md-6 col-sm-12 mt-5">
+          <div className="marg col-lg-3 col-md-6 col-sm-12 mt-5">
             <div className="card">
               <img className="card-img-top" src={channel.thumbnail_url} />
               <div className="card-body">
