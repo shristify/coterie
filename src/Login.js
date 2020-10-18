@@ -6,7 +6,6 @@ import Modal from '@material-ui/core/Modal';
 import {Button, Input} from '@material-ui/core'
 import {Link} from "react-router-dom";
 import firebase from "firebase"
-import Sidebar from "./Sidebar"
 import "./HomePage.css"
 function getModalStyle() {
     const top = 50;
