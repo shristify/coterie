@@ -13,18 +13,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css";
 import Header from "./Header"
 import Header1 from "./components/Header1";
+import './App.css';
 
 function Trending() {
     return (       
-<div className="Trending container-fluid">
+<div className="Trending">
 
 <Sidebar/>
 <Header/>
       <Router>
         
-    <Header1 />
+    <Header1 className="navbar" />
     <Switch>
-        <Route exact path="/trending/top-streams" component={withRouter(Stream)} />
+<Route exact path="/trending/top-streams" component={withRouter(Stream)} />
       <Route path="/trending/game/:id" component={withRouter(GameStreams)} />
       <Route exact path="/trending" component={withRouter(Games)} />
       </Switch>    
