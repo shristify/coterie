@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import "../Trending.css"
+import "../Messages.css"
 
 import api from "../api";
 function GameStreams({ match, location }) {
@@ -29,14 +31,14 @@ function GameStreams({ match, location }) {
   }, []);
   return (
     <div>
-      <h1 className="text-center">{match.params.id} Streams</h1>
-      <h3 className="text-center">
+      <h1 className=" margo">{match.params.id} Streams</h1>
+      <h3 className=" margo">
         <strong className="text-primary">{viewers}</strong> people currently
         watching {match.params.id}
       </h3>
       <div className="row">
         {streamData.map(stream => (
-          <div className="col-lg-4 col-md-6 col-sm-12 mt-5">
+          <div className="marg col-lg-3 col-md-6 col-sm-12 mt-5">
             <div className="card">
               <img className="card-img-top" src={stream.thumbnail_url} />
               <div className="card-body">
@@ -44,15 +46,17 @@ function GameStreams({ match, location }) {
                 <div className="card-text">
                   {stream.viewer_count} live viewers
                 </div>
-                <button className="btn btn-success">
-                  <a
+              <button onClick="popup()" className="btn btn-success">
+             <a
                     className="link"
                     href={"https://twitch.tv/" + stream.user_name}
                     target="_blank"
-                  >
+        >
+    
                     watch {stream.user_name}'s channel
-                  </a>
+                </a>
                 </button>
+                
               </div>
             </div>
           </div>
