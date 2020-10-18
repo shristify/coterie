@@ -5,13 +5,13 @@ Prajjwal Sharma	Project Coterie
 Members
 Shristi Singh 
 Reg no- 20194002
-Contact no - +91 90267 54395
-Vineeta Singh	Vineeta Singh
+
+Vineeta Singh
 Reg no- 20194001
-Contact no - +91 70805 35551
+
 Prajjwal Sharma
 Reg no- 20192089
-Contact no - +91 77708 78986
+
 Problem Statement
 Social Gaming Platform - Coterie
 Implementing a fully functional social platform supporting various multimedia, photos, videos, live streams, for powerful gaming but not restricted to, essentially ringing the creative community closer than ever to their audience.
@@ -37,11 +37,7 @@ Advanced:
 7. Request to message users (accept/reject)
 
 USP :  What makes our project different ?
-Switch between Themes
-Interactive UI
-Stories section for  creators
-No subscriber limit for live streaming
-Special Bounty Badges
+**hidden**
 Tech Stack
 React JS
 Router - for connecting various pages
