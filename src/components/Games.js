@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import api from "../api";
+import "../Trending.css"
+import "../Messages.css"
+import Sidebar from "../Sidebar"
+
 function Games() {
   const [games, setGames] = useState([]);
 
@@ -23,10 +27,13 @@ function Games() {
   }, []);
   return (
     <div>
-      <h1>Most Popular Games</h1>
+    
+      <h1 className="margo">Most Popular Games</h1>
       <div className="row">
+
         {games.map(game => (
-          <div className="col-lg-4 col-md-6 col-sm-12 mt-5">
+
+  <div className="marg col-lg-3 col-md-6 col-sm-12 mt-5">
             <div className="card">
               <img className="card-img-top" src={game.box_art_url} />
               <div className="card-body">
