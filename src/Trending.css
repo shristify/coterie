@@ -1,3 +1,18 @@
 .trending{
     display: flex;
 }
+.marg{
+ float:right;
+   margin-left:60px;
+    margin-right:20px;
+    margin-bottom: 10px;
+}
+.margo{
+    color:"white";
+    display:flex;
+justify-content: center;
+    font-family: "Amatic SC";
+}
+body{
+    background-color:#131921;
+}
