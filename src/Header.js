@@ -137,7 +137,7 @@ function Header() {
     return (
         <div className ="header" > 
       {/*<Button onClick={() => setOpen(true)} >SignUp</Button>*/}
-        <div className="headerLogo"><h1 style={{fontFamily:'Amatic SC'}}>Coterie</h1></div>
+        <div className="headerLogo"><h1 style={{fontFamily:'Amatic SC',color:"white"}}>Coterie</h1></div>
         {/*<img className="headerLogo" src="https://www.coteriefashionevents.com/content/dam/Informa/
          coteriefashion/en/COTERIE_0920_DTE_nodates_header_1880x300.jpg" />*/}
 
