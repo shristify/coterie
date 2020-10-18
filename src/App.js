@@ -4,10 +4,8 @@ import Upload from './Upload'
 import Upload2 from "./Upload2"
 import Sidebar from './Sidebar'
 import { withRouter } from 'react-router-dom'
-
 import Post from './Post'
 import './App.css';
-
 import {db,auth} from './firebase'
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Messages from "./Messages"
@@ -19,7 +17,7 @@ import VideoPlayer from 'react-video-js-player'
 import Connect from "./Connect";
 import Login from "./Login";
 import HomePage from "./HomePage";
-
+import "./index.css"
 function App() {
   const [posts,setPosts]=useState([])
   const[user]=useAuthState(auth)
