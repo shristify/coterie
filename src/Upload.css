@@ -1,3 +1,9 @@
 .uploadTask{
     display: flex;
 }
+.container{
+    position: relative;
+    margin-left:500px;
+    left:500px;
+    
+}

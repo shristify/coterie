@@ -1,11 +1,3 @@
-.appPage{
-    display: flex;
-    background-color: #131921;
-    color: white;
-}
-.appPageFinal{
-    display: grid;
-}
 .outBlock{
     background-color: #dadbd3 ;
     height: 100vh;

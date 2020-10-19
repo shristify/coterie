@@ -57,7 +57,7 @@ function Upload({username}) {
       };
     
     return (
-        <div>
+        <div className="container">
             <h1>Share Your feelings</h1>
             {/*ab login krne k baad, we have to input description
       upload video and post button */}

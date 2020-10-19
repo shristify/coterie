@@ -21,15 +21,20 @@ function Connect() {
         <div>
             <div className="appPage">
        <Sidebar/>
+       <Header/>
        <div className="appPageFinal">
      <Upload/>
       
-     <VideoPlayer
+    <ReactPlayer
           className='react-player'
-          url='https://bit.ly/340vSNm'
+          url='https://bit.ly/37kQv8N'
           width='100%'
           height='100%'
-        />
+          playing={true}
+          loop={true}
+    />
+
+
 {
 posts.map(post => (
 <Post username={post.username} caption={post.caption} 

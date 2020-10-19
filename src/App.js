@@ -3,6 +3,7 @@ import Header from './Header'
 import Upload from './Upload'
 import Upload2 from "./Upload2"
 import Sidebar from './Sidebar'
+import { withRouter } from 'react-router-dom'
 import Post from './Post'
 import './App.css';
 import {db,auth} from './firebase'
@@ -10,12 +11,16 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Messages from "./Messages"
 import Trending from "./Trending"
 import {Button, Input} from '@material-ui/core'
-import {useAuthState} from 'react-firebase-hooks/auth'
+import {useAuthState} from 'react-firebase-hooks/auth';
 import ReactPlayer from 'react-player'
 import VideoPlayer from 'react-video-js-player'
-import Connect from "./Connect"
-import HomePage from "./HomePage"
-
+import Connect from "./Connect";
+import Login from "./Login";
+import HomePage from "./HomePage";
+import "./index.css"
+import ChatPeopleInfo from './ChatPeopleInfo';
+import ChatSidebar from './ChatSidebar'
+import ChatPersonal from './ChatPersonal'
 function App() {
   const [posts,setPosts]=useState([])
   const[user]=useAuthState(auth)
@@ -30,35 +35,28 @@ function App() {
 
   return (
     <Router>
-    <div className="App">
-   {/* <h1>Aao croterie banaye aur avishkar jeetein</h1>
-    //going to add sticky header here*/}
-    <Header/>
+    <div className="App" >  
   
-    <Switch>
-
-    <Route path ="/messages">
-       <Messages/>
-     </Route>
-     <Route path="/trending">
-      <Trending/>
-    </Route>
-    <Route path="/connect">
-      <Connect/>
-    </Route>
-      <Route path="/">
-     <HomePage/>
-     </Route>
-
-    
+      <Switch>
+    <Route  path ="/messages" component={withRouter(Messages)}/>
+     <Route  path="/trending" component={withRouter(Trending)}/>
+      
+    <Route path="/connect" component={withRouter(Connect)}/>
+    <Route exact path="/personalChat"> <Sidebar/>
+    <div className="outBlock">
+            
+            <div className="body">
+   
+     
+    <ChatSidebar></ChatSidebar>
+     <Route path="/personalChat/rooms/roomId">
+      <ChatPersonal></ChatPersonal></Route>
+      
+      </div>
+      </div></Route>
+     {/*<Route exact path="/" component={withRouter(HomePage)}/>*/}  
+  <Route path="/">  {user?(<HomePage/>):(<Login/>)}</Route>  
      </Switch>
-    {/*sidebar */}
- 
-    {/*suggested videos here*/}
-    {/*upload here */}
-    
-
-
   
     </div>
     </Router>

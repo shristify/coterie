@@ -1,0 +1,34 @@
+.chatSidebarHeader{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-right: 1px solid lightgrey;
+}
+.chatSidebar{
+    flex: 0.30;
+}
+.chatSidebarSearch{
+    display: flex;
+    align-items: center;
+    background-color: #f6f6f6;
+    height: 39px;
+    padding: 10px;
+}
+
+.chatSidebarSearchConatiner{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    height: 35px;
+    border-radius: 25px;
+}
+
+.input{
+    border: none;
+    margin-left: 10px;
+    width: 100%;
+}
+
+
+
