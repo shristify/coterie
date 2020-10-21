@@ -1,16 +1,18 @@
 import React, { useState,useEffect } from 'react'
 import'./Post.css';
 import Avatar from "@material-ui/core/Avatar";
-import { db } from './coterie-main/src/firebase';
+import { db, auth } from './firebase';
+import firebase from "firebase"
+import {useAuthState} from 'react-firebase-hooks/auth'
 function Post({ postId,username, caption, imageUrl })
 {
-    const[comments,setComments]=useState([]);
-    const [comment,setComments]=useState('');
+
+    const [comment,setComments]=useState([]);
+    const[user]=useAuthState(auth)
     useEffect( ()=>{
-        let unsubscribe
+        
         if(postId){
-            unsubscribe=db
-            .collection("posts")
+           db.collection("posts")
             .doc(postId)
             .collection("comments")
             .onSnapshot((snapshot)=>{
@@ -19,9 +21,9 @@ function Post({ postId,username, caption, imageUrl })
         }  
 
         return () =>{
-            unsubscribe();
+            
         };
-    }, [postid]);
+    }, [postId]);
      
     const postComment=(event)=>{
         event.preventDefault();
@@ -31,7 +33,7 @@ function Post({ postId,username, caption, imageUrl })
         username:user.displayName,
         timestamp: firebase.forestore.fieldValue   
         });
-        setComment(''); 
+        setComments(''); 
 
     }
     return (
@@ -51,7 +53,7 @@ function Post({ postId,username, caption, imageUrl })
             {/*username+caption*/}
             <div className="post__comments">
                 {
-                    comments.map((comment) =>(
+                    comment.map((comment) =>(
                         <p>
                             <strong> {comment.username}</strong>{ comment.text}
                         </p>
@@ -64,7 +66,7 @@ function Post({ postId,username, caption, imageUrl })
                 type="text"
                 placeholder="Add a comment.."
                 value={comment}
-            onChange={(e) => setComment(e.target.value)}>
+            onChange={(e) => setComments(e.target.value)}>
 
                 </input>
                 <button>

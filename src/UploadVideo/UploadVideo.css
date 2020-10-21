@@ -1,0 +1,24 @@
+.uploadVideo{
+    display: block;
+    background-color: #131921;
+    color: white;
+    
+}
+.uploadVideo>h3{
+    color: white;
+}
+.title{
+    padding: 5;
+    width: 30%;
+}
+.description{
+   width: 50%;
+    height: 100px;
+}
+.uploadContainer{
+    background-color: #131921;
+    color: white;
+}
+.headTitle{
+    color: white;
+}
