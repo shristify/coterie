@@ -44,7 +44,8 @@ function ChatMessage(props){
  const compareUser=uid=== auth.currentUser.uid ? ('sent'):('recieved')
  return (
   <div className={'message $ {compareUser}'}>
-  <img src ={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'}/>
+  <img src ={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} style={{width
+:"40px"}}/>
  <p>{displayName}
   {text}</p></div>
  )

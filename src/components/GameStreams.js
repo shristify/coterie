@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import "../Trending.css"
 import "../Messages.css"
@@ -32,8 +31,8 @@ function GameStreams({ match, location }) {
   }, []);
   return (
     <div>
-      <h1 className=" margo" style={{color:"white",zIndex:"5"}}>{match.params.id} Streams</h1>
-      <h3 className=" margo" style={{color:"white",zIndex:"5"}}>
+      <h1 className=" margo">{match.params.id} Streams</h1>
+      <h3 className=" margo">
         <strong className="text-primary">{viewers}</strong> people currently
         watching {match.params.id}
       </h3>
@@ -68,4 +67,3 @@ function GameStreams({ match, location }) {
 }
 
 export default GameStreams;
-
