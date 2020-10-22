@@ -31,8 +31,8 @@ function GameStreams({ match, location }) {
   }, []);
   return (
     <div>
-      <h1 className=" margo">{match.params.id} Streams</h1>
-      <h3 className=" margo">
+      <h1 className=" margo" style={{color:"white",zIndex:"5"}}>{match.params.id} Streams</h1>
+      <h3 className=" margo" style={{color:"white",zIndex:"5"}}>
         <strong className="text-primary">{viewers}</strong> people currently
         watching {match.params.id}
       </h3>
