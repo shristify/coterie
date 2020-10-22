@@ -8,11 +8,8 @@
     margin-bottom: 10px;
 }
 .margo{
-    color:"white";
+  
     display:flex;
-justify-content: center;
+    justify-content: center;
     font-family: "Amatic SC";
-}
-body{
-    background-color:#131921;
 }
