@@ -86,6 +86,10 @@ border-bottom: 1px solid grey;
     margin-top:8px ;
     margin-left: 10px;
 }
+.nav{
+    display: flex;
+    justify-content: space-around;
+}
 .appSignUp{
     display: flex;
     flex-direction: column;}
