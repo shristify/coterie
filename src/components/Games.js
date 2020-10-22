@@ -28,7 +28,7 @@ function Games() {
   return (
     <div>
     
-      <h1 className="margo" style={{color:"white",zIndex:"5"}}>Most Popular Games</h1>
+      <h1 className="margo">Most Popular Games</h1>
       <div className="row">
 
         {games.map(game => (

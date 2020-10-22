@@ -8,7 +8,7 @@
     height: 100%;
 }
 .MuiTypography-colorTextSecondary {
-    color: white;
+    color: #fff;
 }
 .MuiPaper-root {
     color: rgb(255, 255, 255);
@@ -29,4 +29,8 @@
 }
 .typo{
     color: white;
+}
+
+.MuiTypography-colorTextSecondary {
+    /* color: rgba(0, 0, 0, 0.54); */
 }

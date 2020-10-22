@@ -15,7 +15,7 @@ import "./VideoCard.css"
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
-    marginTop:400,
+   
     marginLeft:90,
     color: yellow
   },
@@ -52,6 +52,7 @@ export default function ReviewCard({url,title,channel,views, date,avatar}) {
         className={classes.media}
         image={url}
         title={title}
+        style={{color:"white"}}
       />
       <CardHeader className="headerCard"
         avatar={
@@ -60,10 +61,11 @@ export default function ReviewCard({url,title,channel,views, date,avatar}) {
           </Avatar>
         }
        title={title}
-       subheader={channel}
-      />
+       
+       style={{color:"white"}}/>
       <CardContent >
-        <Typography variant="body2" color="textSecondary" component="p" >
+        <Typography variant="body2" color="textSecondary" component="p"  style={{color:"white"}}>
+        {channel}<hr></hr>
          {date} * {views}
         </Typography>
       </CardContent>
