@@ -44,7 +44,7 @@ function Stream() {
   }, []);
   return (
     <div>
-      <h1 className="margo">Most Popular Live Streams</h1>
+      <h1 className="margo" style={{color:"white",zIndex:"5"}}>Most Popular Live Streams</h1>
       <div className="row">
         {channels.map(channel => (
           <div className="marg col-lg-3 col-md-6 col-sm-12 mt-5">
@@ -75,3 +75,4 @@ function Stream() {
 }
 
 export default Stream;
+
