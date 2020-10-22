@@ -76,7 +76,6 @@ function Post({ postId,username, caption, imageUrl })
                     onClick={postComment}>
                 </button>
             </form>
-
              </div>
     )
 }
