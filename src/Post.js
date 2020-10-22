@@ -1,3 +1,4 @@
+
 import React, { useState,useEffect } from 'react'
 import'./Post.css';
 import Avatar from "@material-ui/core/Avatar";
@@ -42,7 +43,7 @@ function Post({ postId,username, caption, imageUrl })
             <Avatar
             className="post__avatar"
             alt='RafehQazi'
-            src="/*image .jpg*/"
+            src=" /*image .jpg*/ "
             />
             
             <h3>{username}</h3>       
@@ -69,13 +70,14 @@ function Post({ postId,username, caption, imageUrl })
             onChange={(e) => setComments(e.target.value)}>
 
                 </input>
-                <button
-                    disabled={comment}
+                <button>
+                    disabled={!comment}
                     className="post__button"
                     type="submit"
-                    onClick={postComment}>
+                    onClick={postComment}
                 </button>
             </form>
+
              </div>
     )
 }

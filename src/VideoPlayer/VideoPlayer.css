@@ -1,0 +1,51 @@
+.player{
+    width: 100%;
+    position: relative;
+    border: 2px solid white;
+}
+.controls{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: rgba(0, 0, 0, 0);
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    z-index: 10;
+}
+.videoplay{
+    margin-top: 50px;
+    margin-left:  50px; ;
+}
+.controlButton{
+    color: grey;
+    font-size: 50px;
+    transform: scale(0.9);
+}
+.controlButton:hover{
+    color: white;
+    transform: scale(1);
+}
+.belowButton{
+    color: grey;
+    
+}
+.belowButton:hover{
+    color: white;
+    transform: scale(1);
+}
+.volumeSlider{
+    width: 100;
+}
+.player {
+    position: relative;
+    padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
+  }
+  
+  .react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }

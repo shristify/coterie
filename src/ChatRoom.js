@@ -16,6 +16,7 @@ function ChatRoom() {
     const sendMsg=async(e)=>{
        e.preventDefault()
        const {uid,photoURL, displayName}=auth.currentUser
+       if(formInput!=null){
        await msgRef.add({
          text:formInput,
          AtTime:  firebase.firestore.FieldValue.serverTimestamp(),
@@ -24,7 +25,7 @@ function ChatRoom() {
          displayName
        })
        setFormInput('')
-    }
+    }}
     return (
         <div className="chatRoom">
             

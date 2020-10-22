@@ -135,26 +135,24 @@ function Header() {
       setOpenSignin(false);
     };
     return (
-        <div className ="header navo" > 
+        <div className ="header" > 
       {/*<Button onClick={() => setOpen(true)} >SignUp</Button>*/}
-        <div className="headerLogo"><h1 style={{fontFamily:'Amatic SC',color:"white",zIndex:"3"}}>Coterie</h1></div>
+        <div className="headerLogo"><h1 style={{fontFamily:'Amatic SC',color:"white"}}>Coterie</h1></div>
         {/*<img className="headerLogo" src="https://www.coteriefashionevents.com/content/dam/Informa/
          coteriefashion/en/COTERIE_0920_DTE_nodates_header_1880x300.jpg" />*/}
 
-<div className="headerSearch x" >
+<div className="headerSearch" >
                 <input className='headerSearchInput'type='text' />
                 <SearchIcon color ="secondary" className="headerSearchIcon" /> 
                 {/*logo*/}
         </div>
-<div className="headerOptions x"> 
-<div className="headerVideoCallIcon">
-  <IconButton color="secondary" aria-label="Home"><VideoCallIcon  color="secondary"/></IconButton></div>
-<div  className="headerNoti">
-   <IconButton color="secondary" aria-label="Home"><NotificationsIcon  color="secondary"/></IconButton></div>
-<div  className="headerSetting">
-  <IconButton color="secondary" aria-label="Home"><SettingsIcon  color="secondary"/></IconButton></div> 
-<div className="headerProfile">
-  <IconButton color="secondary" aria-label="Home"><AccountCircleIcon  color="secondary"/></IconButton></div>
+<div className="headerOptions"> 
+<Link to="/UploadVideo">
+<div className="headerVideoCallIcon"><IconButton color="secondary" aria-label="Home"><VideoCallIcon  color="secondary"/></IconButton></div>
+</Link>
+<div  className="headerNoti"> <IconButton color="secondary" aria-label="Home"><NotificationsIcon  color="secondary"/></IconButton></div>
+<div  className="headerSetting"><IconButton color="secondary" aria-label="Home"><SettingsIcon  color="secondary"/></IconButton></div> 
+<div className="headerProfile"><IconButton color="secondary" aria-label="Home"><AccountCircleIcon  color="secondary"/></IconButton></div>
 <div className="signIn">
 <Modal
   open={open}
@@ -198,7 +196,7 @@ value = {password } onChange={(e)=>setPassword(e.target.value)} ></Input>
   onClick={signinwithfacebook} variant="contained" color="primary">Sign in with facebook</Button>
   </div>
 </Modal>
- {user ? (<div className="logoutButton"><Button variant="outlined"  onClick={() => auth.signOut()} color="secondary" >
+ {user ? (<div className="logoutButton"><Button variant="contained"  onClick={() => auth.signOut()} color="secondary" >
    Logout</Button></div>):
     (<div className="loginContainer">
    <Button  onClick={() => setOpen(true)} ></Button>
@@ -214,5 +212,4 @@ value = {password } onChange={(e)=>setPassword(e.target.value)} ></Input>
 
 
 export default Header
-
 

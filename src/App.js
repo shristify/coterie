@@ -18,6 +18,10 @@ import Connect from "./Connect";
 import Login from "./Login";
 import HomePage from "./HomePage";
 import "./index.css"
+import ChatPeopleInfo from './ChatPeopleInfo';
+import ChatSidebar from './ChatSidebar'
+import ChatPersonal from './ChatPersonal'
+import UploadVideo from './UploadVideo/UploadVideo'
 function App() {
   const [posts,setPosts]=useState([])
   const[user]=useAuthState(auth)
@@ -38,8 +42,23 @@ function App() {
     <Route  path ="/messages" component={withRouter(Messages)}/>
      <Route  path="/trending" component={withRouter(Trending)}/>
       
-    <Route exact path="/connect" component={withRouter(Connect)}/>
+    <Route path="/connect" component={withRouter(Connect)}/>
+
+    <Route path="/uploadvideo">
+      <UploadVideo/>
+    </Route>
+    <Route exact path="/personalChat"> <Sidebar/>
+    <div className="outBlock">
+            
+            <div className="body">
+   
      
+    <ChatSidebar></ChatSidebar>
+     <Route path="/personalChat/rooms/roomId">
+      <ChatPersonal></ChatPersonal></Route>
+      
+      </div>
+      </div></Route>
      {/*<Route exact path="/" component={withRouter(HomePage)}/>*/}  
   <Route path="/">  {user?(<HomePage/>):(<Login/>)}</Route>  
      </Switch>
