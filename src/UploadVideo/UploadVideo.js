@@ -14,24 +14,20 @@ function UploadVideo() {
     const [description, setDescription]=useState('')
     const [progress, setProgress]=useState(0)
     const [video, setVideo]=useState(null)
-    const [thumbnail, setThumbnail]=useState(null)
+    const [thumbnail, setThumbnail]=useState('')
     const [user]=useAuthState(auth)
     
-    
+    const {uid, photoURL, displayName}=auth.currentUser
     const handleChange=(e)=>{
         if(e.target.files[0]){
            setVideo(e.target.files[0])
         }
     }
-    const handleThumbnail=(e)=>{
-        if(e.target.files[0]){
-           setThumbnail(e.target.files[0])
-        }
-    }
+    
 
     const handleUpload=()=>{
         const uploadVideo = storage.ref(`video/${video.name}`).put(video);
-        const uploadThumbnail = storage.ref(`video/${thumbnail.name}`).put(thumbnail);
+        {/*const uploadThumbnail = storage.ref(`video/${thumbnail.name}`).put(thumbnail);*/}
         const{displayName, photoURL}=auth.currentUser
         uploadVideo.on(
           "state_changed",
@@ -60,10 +56,10 @@ function UploadVideo() {
                     timestamp:firebase.firestore.FieldValue.serverTimestamp(),
                     title:title,
                     videoUrl:url,
-                   
+                    channelImage:photoURL,
                     description:description,
-                    username:displayName
-
+                    channel:displayName,
+                    image:thumbnail
                 
                 })
                 alert("video uploaded successfully")
@@ -71,6 +67,7 @@ function UploadVideo() {
                 setVideo(null)
                 setTitle("")
                 setDescription("")
+                setThumbnail("")
               });
           }
         );
@@ -92,7 +89,9 @@ function UploadVideo() {
 <input type="file" onChange={handleChange}></input></Grid><hr></hr>
 <Grid item>
     <h3>Thumbnail</h3>
-<input type="file" onChange={handleThumbnail}></input></Grid><hr></hr>
+<input type="link" placeholder="enter link of thumbnail"
+ onChange={event => setThumbnail(event.target.value)}
+value={thumbnail}></input></Grid><hr></hr>
 <Grid item><input type="text" className="title" placeholder="enter Title"
   onChange={event => setTitle(event.target.value)} value={title}></input></Grid>
   <hr></hr>
