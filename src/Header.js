@@ -10,7 +10,7 @@ import VideoCallIcon from '@material-ui/icons/VideoCall';
 import {db, auth} from "./firebase";
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
-import {Button, Input} from '@material-ui/core'
+import {Button, Input, Avatar} from '@material-ui/core'
 import Sidebar from './Sidebar'
 import IconButton from '@material-ui/core/IconButton';
 import {Link} from "react-router-dom";
@@ -47,7 +47,8 @@ function Header() {
     const[password, setPassword]=useState('')
     const[user, setUser]=useState(null)
     const[openSignin, setOpenSignin]=useState('')
-  
+    const [searchfunc,setSearchfunc]=useState("")
+    const {uid,photoURL, displayName}=auth.currentUser
     useEffect(()=>{
       const unsubscribe=auth.onAuthStateChanged((authUser)=>{
         if(authUser){
@@ -142,8 +143,11 @@ function Header() {
          coteriefashion/en/COTERIE_0920_DTE_nodates_header_1880x300.jpg" />*/}
 
 <div className="headerSearch" >
-                <input className='headerSearchInput'type='text' />
-                <SearchIcon color ="secondary" className="headerSearchIcon" /> 
+                <input value={searchfunc}
+                onChange={e=>setSearchfunc(e.target.value)}
+                placeholder="search" className='headerSearchInput' type='text' />
+                <Link to={'/search/${searchfunc}'}><IconButton color="secondary" aria-label="Home"> <SearchIcon color ="secondary" className="headerSearchIcon" /> 
+                </IconButton></Link>
                 {/*logo*/}
         </div>
 <div className="headerOptions"> 
@@ -152,7 +156,14 @@ function Header() {
 </Link>
 <div  className="headerNoti"> <IconButton color="secondary" aria-label="Home"><NotificationsIcon  color="secondary"/></IconButton></div>
 <div  className="headerSetting"><IconButton color="secondary" aria-label="Home"><SettingsIcon  color="secondary"/></IconButton></div> 
-<div className="headerProfile"><IconButton color="secondary" aria-label="Home"><AccountCircleIcon  color="secondary"/></IconButton></div>
+<div className="headerProfile">
+  
+  <IconButton color="secondary" aria-label="Home">
+  <Avatar src ={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} style={{width
+:"10px"}}
+style={{height
+  :"25px"}}/>
+    </IconButton></div>
 <div className="signIn">
 <Modal
   open={open}

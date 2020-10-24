@@ -1,76 +1,9 @@
 .homePage{
     display: flex;
-   background-color:#131921 ;
-}
-.color{
-    background-color:#131921;
-}
-.timePass{
-    display:flex;
-    flex-direction: column;
-}
-.MuiCardContent-root {
-    padding: 16px;
     background-color: #131921;
-    color: white;
 }
-.MuiTypography-h5 {
-    font-size: 1.5rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-weight: 400;
-    line-height: 1.334;
-    letter-spacing: 0em;
-    color: white;
-}
-.imgSlide{
-    margin-left: 50px;
-    margin-top: 60px;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-}
-.rec-carousel-item:focus {
-    outline: none;
-    box-shadow: inset 0 0 1px 0px violet;
-  }
-  .brcpxa {
-    -webkit-transition: all 250ms ease;
-    transition: all 250ms ease;
-    border: none;
-    margin: 5px;
-    background-color:#f50057;
-    font-size: 1.3em;
-    content: "";
-    height: 10px;
-    width: 10px;
-    box-shadow: 0 0 1px 3px #f50057;
-    border-radius: 50%;
-    outline: none;
-}
-.d-block w-100{
-    height: 100px;
-    width: 200px;
-}
-.homeBlock{
-    margin-top: 70px;
-    margin-left: 5px;
-    width: 100%;
-    height: 100%;
-    background-color:#131921 ;
-}
-h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-    margin-bottom: .75rem;
-    font-family: Poppins,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    font-weight: 400;
-    color: #ffffff;
-}
-.imgSlide{
-    width: 100%;
-    height: 100%;
-}
-.cardVideo{
+.videoHere{
     display: flex;
-}
-.other{
-    display: flex;
+    flex-wrap: wrap;
+    z-index: 100;
 }

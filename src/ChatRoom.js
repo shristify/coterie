@@ -4,6 +4,7 @@ import {useCollectionData} from 'react-firebase-hooks/firestore'
 import {db,auth} from './firebase'
 import firebase from "firebase";
 import { Button } from '@material-ui/core'
+import Avatar from '@material-ui/core/Avatar'
 import "./ChatRoom.css"
 
 function ChatRoom() {
@@ -44,7 +45,7 @@ function ChatMessage(props){
  const compareUser=uid=== auth.currentUser.uid ? ('sent'):('recieved')
  return (
   <div className={'message $ {compareUser}'}>
-  <img src ={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} style={{width
+  <Avatar src ={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} style={{width
 :"40px"}}/>
  <p>{displayName}
   {text}</p></div>

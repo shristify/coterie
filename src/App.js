@@ -43,7 +43,12 @@ function App() {
      <Route  path="/trending" component={withRouter(Trending)}/>
       
     <Route path="/connect" component={withRouter(Connect)}/>
-
+    <Route path="/search/:searchKeyword">
+      <h1>Search appears here</h1>
+    </Route>
+    <Route path="/video/:videoId">
+      <h1>video appears here</h1>
+    </Route>
     <Route path="/uploadvideo">
       <UploadVideo/>
     </Route>
