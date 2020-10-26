@@ -10,19 +10,27 @@ import VideoCard from "./VideoCard/VideoCard"
 import Carousel from "react-bootstrap/Carousel"; 
 import firebase from "firebase"
 
-
+import {Link} from "react-router-dom";
 
 function HomePage() {
 const [videos, setVideos]=useState([])
 
 
 
-useEffect(()=>
-    {
-      db.collection('VideosUser').onSnapshot(snapshot => {
-        setVideos(snapshot.docs.map(doc=> doc.data()))
-      })
-    },[])
+useEffect(()=>{
+  const unsubscribe=db.collection("VideosUser").onSnapshot(snapshot=>(
+      setVideos(snapshot.docs.map(
+          (doc)=>({
+              id:doc.id,
+              data:doc.data(),
+          })
+      ))
+  ))
+
+  return ()=>{
+      unsubscribe();
+  }
+},[])
 
 
     return (
@@ -81,6 +89,8 @@ useEffect(()=>
       </div>
       <h2 style={{color:"white"}}>Suggested Videos</h2>
       <br></br>
+
+      
       <div className="videoHere">
       
 
@@ -93,9 +103,12 @@ title="Wahh bhaiya full among us baaji" channel="prajjwal._" views="10M views"
 {
 videos.map(video => (
 <VideoCard title={video.title} channel={video.channel} views={video.views}
-timestamp={new Date(video.timestamp.seconds * 1000).toLocaleDateString("en-US")}
+// timestamp={new Date(video.timestamp.seconds * 1000).toLocaleDateString("en-US")}
 channelImage={video.channelImage}
-image={video.image} ></VideoCard>
+image={video.image} 
+id={video.id}
+key={video.id} 
+></VideoCard>
 
 
 ))

@@ -1,29 +1,40 @@
-import React, { useState, useEffect } from 'react'
+ import React, { useState, useEffect } from 'react'
 import {Avatar, IconButton} from '@material-ui/core'
 import "./ChatSidebar.css"
 import StarsIcon from '@material-ui/icons/Stars';
 import SearchIcon from '@material-ui/icons/Search';
 import ChatSidebarChats from './ChatSidebarChats';
-import {db} from "./firebase"
+import {db,auth} from "./firebase"
+import {useStateValue } from "./StateProvider"
+
+
 function ChatSidebar() {
     const [people,setPeople]=useState([]);
-
+    const[{user1}, dispatch]=useStateValue()
+    const {uid,photoURL, displayName}=auth.currentUser
+    
     useEffect(()=>{
-         db.collection("Personal msg").onSnapshot(snapshot=>(
+         const unsubscribe=db.collection("Personal msg").onSnapshot(snapshot=>(
              setPeople(snapshot.docs.map(
-                 doc=>({
+                 (doc)=>({
                      id:doc.id,
                      data:doc.data(),
                  })
              ))
          ))
-    })
+
+         return ()=>{
+             unsubscribe();
+         }
+    },[])
+
+
     return (
         <div className="chatSidebar">
           
 
             <div className="chatSidebarHeader">
-            <Avatar/>
+            <Avatar src={photoURL}/>
               <IconButton>
               
               <StarsIcon/>
@@ -42,9 +53,9 @@ function ChatSidebar() {
            <div className="chatSidebarChats">
              <ChatSidebarChats addNewChat/>
              {
-                 people.map(people=>(
-                     <ChatSidebarChats key={people.id} id={people.id}
-                     name={people.data.name}/>
+                 people.map(ppl=>(
+                     <ChatSidebarChats key={ppl.id} id={ppl.id}
+                     name={ppl.data.name}/>
                  ))
              }
            </div>

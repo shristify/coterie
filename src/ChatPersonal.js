@@ -6,24 +6,53 @@ import FileCopyIcon from '@material-ui/icons/FileCopy';
 import SearchIcon from '@material-ui/icons/Search';
 import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 import {useParams} from 'react-router-dom'
-import { db } from './firebase';
+import { db,auth } from './firebase';
+import firebase from "firebase";
 function ChatPersonal() {
     const [input,setInput]=useState("")
     const {roomId}=useParams();
-    const [roomName,setRoomName]=useState(""
-    )
+    const [roomName,setRoomName]=useState("")
+    const [messaging, setMessaging]=useState([])
+   
+    const {uid,photoURL, displayName}=auth.currentUser
 
-    useEffect(()=>{
-        if(roomId){
-            db.collection('Personal msg').doc(roomId).onSnapshot(snapshot=>(
-                setRoomName(snapshot.data().name
+     useEffect(()=>{
+         if(roomId){
+             db.collection('Personal msg').doc(roomId).onSnapshot(snapshot=>(
+                 setRoomName(snapshot.data().name)
+                 
+             ))
+             
+             db.collection('Personal msg').doc(roomId).collection('chats').orderBy("timestamp",
+             'asc').onSnapshot(
+                (snapshot)=>(
+                     setMessaging(snapshot.docs.map(doc=>
+                     doc.data())
                 )
-            ))
-        } 
-    },[roomId])
+       
+               ))
+
+         } 
+
+    
+
+        
+
+
+     },[roomId])
     const sendMsg=(e)=>{
    e.preventDefault()
    console.log("you typed --- ",input)
+
+   db.collection('Personal msg').doc(roomId).collection('chats').add({
+    name:displayName,
+    message:input,
+    timestamp:  firebase.firestore.FieldValue.serverTimestamp(),
+    userid:uid,
+    pic:photoURL
+  
+   })
+
    setInput("")
     }
     return (
@@ -33,7 +62,11 @@ function ChatPersonal() {
            <Avatar/>
            <div className="chatHeaderInfo">
     <h3>{roomName}</h3>
-               <p>online</p>
+               <p>last seen at
+                   {
+                       new Date(messaging[messaging.length-1]?.timestamp?.toDate()).toUTCString() 
+                   }
+               </p>
            </div>
           <div className="chatHeaderRight">
              <IconButton>
@@ -50,14 +83,22 @@ function ChatPersonal() {
 
           </div>
           <div className="chatBody">
-            <div className="chatMsg">{/**add condition here  */}
-                <p>
-                <span className="chatName">Prajjwal</span>
-                hello
-                <span className='timestamp'>20:33</span>
+              {
+                  messaging.map((chatting)=>(
+                
+                   <p className={`chatMsg ${true &&
+                 "chatReciever"}`}>
+                  <span className="chatName">{chatting.name}</span>
+                   {chatting.message}
+                   <span className='timestamp'>{
+                    new Date(chatting.timestamp?.toDate()).toUTCString()
+                    }</span>
                 </p>
                
-            </div>
+          
+    ))
+              }
+            
           </div>
           <div className="chatFooter">
            <EmojiEmotionsIcon/>

@@ -21,8 +21,13 @@ import "./index.css"
 import ChatPeopleInfo from './ChatPeopleInfo';
 import ChatSidebar from './ChatSidebar'
 import ChatPersonal from './ChatPersonal'
+import VideoPage from "./VideoPage/VideoPage"
 import UploadVideo from './UploadVideo/UploadVideo'
+import {useStateValue } from "./StateProvider"
+
 function App() {
+
+  const[{user1}, dispatch]=useStateValue()
   const [posts,setPosts]=useState([])
   const[user]=useAuthState(auth)
 
@@ -46,24 +51,31 @@ function App() {
     <Route path="/search/:searchKeyword">
       <h1>Search appears here</h1>
     </Route>
-    <Route path="/video/:videoId">
+    <Route path="/video/:id">
       <h1>video appears here</h1>
+    <VideoPage></VideoPage>
     </Route>
     <Route path="/uploadvideo">
       <UploadVideo/>
     </Route>
-    <Route exact path="/personalChat"> <Sidebar/>
+    <Route path="/personalChat"> <Sidebar/>
     <div className="outBlock">
             
             <div className="body">
    
      
     <ChatSidebar></ChatSidebar>
-     <Route path="/personalChat/rooms/roomId">
-      <ChatPersonal></ChatPersonal></Route>
+   
+    <Route path="/personalChat/:roomId">
+
+    <ChatPersonal></ChatPersonal>
+    </Route>
       
       </div>
-      </div></Route>
+      </div></Route> 
+
+      
+      
      {/*<Route exact path="/" component={withRouter(HomePage)}/>*/}  
   <Route path="/">  {user?(<HomePage/>):(<Login/>)}</Route>  
      </Switch>
