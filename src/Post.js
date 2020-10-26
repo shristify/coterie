@@ -1,81 +1,83 @@
-
 import React, { useState,useEffect } from 'react'
 import'./Post.css';
 import Avatar from "@material-ui/core/Avatar";
 import { db, auth } from './firebase';
 import firebase from "firebase"
 import {useAuthState} from 'react-firebase-hooks/auth'
-function Post({ postId, user, username, caption, imageUrl }) {
-    const [comments, setComments] = useState([])
-    const [comment, setComment] = useState('')
+function Post({ postId,username, caption, imageUrl })
+{
 
-    useEffect(() => {
-        let unsubscribe;
-        if (postId) {
-            unsubscribe = db
-            .collection("posts")
+    const [comment,setComments]=useState([]);
+    const[user]=useAuthState(auth)
+    useEffect( ()=>{
+        
+        if(postId){
+           db.collection("posts")
             .doc(postId)
             .collection("comments")
-            .orderBy('timestamp', 'desc')
-            .onSnapshot((snapshot) => {
-                setComments(snapshot.docs.map((doc) => doc.data()));
-            })
-        }
+            .onSnapshot((snapshot)=>{
+             setComments(snapshot.docs.map((doc) => doc.data()));
+            });
+        }  
 
-        return () => {
-            unsubscribe();
+        return () =>{
+            
         };
-     }, [postId]);
-
-    const postComment = (event) => {
+    }, [postId]);
+     
+    const postComment=(event)=>{
         event.preventDefault();
-
-        db.collection("Posts").doc(postId).collection("comments").add({
-            text: comment,
-            username: user.displayName,
-            timestamp: firebase.forestore.fieldValue   
+        
+        db.collection("posts").doc(postId).collection("comments").add({
+        text: comment,
+        username:user.displayName,
+        timestamp: firebase.forestore.fieldValue   
         });
-        setComment('');
+        setComments(''); 
+
     }
-
     return (
-        <div className="post">
-            <div className="post__header">
-                <Avatar className="post__avatar"></Avatar>
+        <div classname="post">
+            <div className="post__header"></div>
+            <Avatar
+            className="post__avatar"
+            alt='RafehQazi'
+            src=" /*image .jpg*/ "
+            />
             
-            <h3>{username}</h3>
-
-            </div>
-            
-            <img className="post__image" src={imageUrl} alt=""/>
-            <h4 className='post__text'><strong>{username} </strong>{caption} </h4>
+            <h3>{username}</h3>       
+                {/*header->avatar+username*/}
+            <img className="post__image"src={imageUrl}></img>
+            {/*image*/}
+            <h4 className="post__text"><strong>{username}</strong>{caption}</h4>
+            {/*username+caption*/}
             <div className="post__comments">
-                {comments.map((comment) => (
-                    <p>
-                        <strong>{comment.username}</strong> {comment.text}
-                    </p>
-                ))}
+                {
+                    comment.map((comment) =>(
+                        <p>
+                            <strong> {comment.username}</strong>{ comment.text}
+                        </p>
+                    ))
+                }
             </div>
+            <form>
+                <input
+                className="post__input"
+                type="text"
+                placeholder="Add a comment.."
+                value={comment}
+            onChange={(e) => setComments(e.target.value)}>
 
-            <form className="post__commentBox">
-                <input 
-                    type="text"
-                    className="post__input"
-                    placeholder="Add a comment..."
-                    value={comment}
-                    onChange={(e) => setComment(e.target.value)}
-                />
-                <button
-                className="post__button"
-                
-                type="submit"
-                onClick={postComment}
-                >
-                Post</button>
+                </input>
+                <button>
+                    disabled={!comment}
+                    className="post__button"
+                    type="submit"
+                    onClick={postComment}
+                </button>
             </form>
 
-        </div>
-    ) 
+             </div>
+    )
 }
-
 export default Post

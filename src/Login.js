@@ -7,6 +7,9 @@ import {Button, Input} from '@material-ui/core'
 import {Link} from "react-router-dom";
 import firebase from "firebase"
 import "./HomePage.css"
+import { actionTypes } from './reducer';
+import {useStateValue} from './StateProvider'
+
 function getModalStyle() {
     const top = 50;
     const left = 50;
@@ -38,6 +41,7 @@ function Login() {
     const[password, setPassword]=useState('')
     const[user, setUser]=useState(null)
     const[openSignin, setOpenSignin]=useState('')
+    const [{}, dispatch]=useStateValue()
     useEffect(()=>{
         const unsubscribe=auth.onAuthStateChanged((authUser)=>{
           if(authUser){
@@ -69,6 +73,10 @@ function Login() {
     event.preventDefault();
     auth.createUserWithEmailAndPassword(email,password).then((authUser)=>{
       alert('Account created successfully!')
+      dispatch({
+        type:actionTypes.SET_USER,
+        
+      })
       return authUser.user.updateProfile({
         displayName:username
       })

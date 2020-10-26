@@ -17,7 +17,7 @@ function UploadVideo() {
     const [thumbnail, setThumbnail]=useState('')
     const [user]=useAuthState(auth)
     
-    const {uid, photoURL, displayName}=auth.currentUser
+   
     const handleChange=(e)=>{
         if(e.target.files[0]){
            setVideo(e.target.files[0])
@@ -36,7 +36,11 @@ function UploadVideo() {
               (snapshot.bytesTransferred / snapshot.totalBytes) * 100
             );
             setProgress(progress);
+
+            
           },
+
+
           error => {
             console.log(error);
           },
@@ -58,8 +62,9 @@ function UploadVideo() {
                     videoUrl:url,
                     channelImage:photoURL,
                     description:description,
-                    channel:displayName,
-                    image:thumbnail
+                    channel:user.displayName,
+                    image:thumbnail,
+
                 
                 })
                 alert("video uploaded successfully")

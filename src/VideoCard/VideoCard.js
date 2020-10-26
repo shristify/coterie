@@ -1,8 +1,10 @@
 import React from 'react'
 import Avatar from '@material-ui/core/Avatar'
+import {Link } from 'react-router-dom'
 import "./VideoCard.css"
-function VideoCard({image, title, channel, views, timestamp,channelImage}) {
+function VideoCard({image, title, channel, views, timestamp,channelImage,id}) {
   return (
+    <Link to={`/video/${id}`}>
     <div className="cardVideo">
       <img className="thumbnailCard"
       src={image} alt={title} ></img>
@@ -15,7 +17,7 @@ function VideoCard({image, title, channel, views, timestamp,channelImage}) {
   <p style={{marginTop:"0px"}}>{views} - {timestamp} </p>
         </div>
       </div>
-    </div>
+    </div></Link>
   )
 }
 

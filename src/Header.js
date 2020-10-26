@@ -146,7 +146,7 @@ function Header() {
                 <input value={searchfunc}
                 onChange={e=>setSearchfunc(e.target.value)}
                 placeholder="search" className='headerSearchInput' type='text' />
-                <Link to={'/search/${searchfunc}'}><IconButton color="secondary" aria-label="Home"> <SearchIcon color ="secondary" className="headerSearchIcon" /> 
+                <Link to={`/search/${searchfunc}`}><IconButton color="secondary" aria-label="Home"> <SearchIcon color ="secondary" className="headerSearchIcon" /> 
                 </IconButton></Link>
                 {/*logo*/}
         </div>
