@@ -16,21 +16,15 @@ function HomePage() {
 const [videos, setVideos]=useState([])
 
 
-
-useEffect(()=>{
-  const unsubscribe=db.collection("VideosUser").onSnapshot(snapshot=>(
-      setVideos(snapshot.docs.map(
-          (doc)=>({
-              id:doc.id,
-              data:doc.data(),
-          })
-      ))
-  ))
-
-  return ()=>{
-      unsubscribe();
-  }
+useEffect(()=>
+{
+  db.collection('VideosUser').orderBy('timestamp').onSnapshot(snapshot => {
+    setVideos(snapshot.docs.map(doc=> ({
+      id:doc.id,
+      data:doc.data()}) ))
+  })
 },[])
+
 
 
     return (
@@ -101,13 +95,13 @@ title="Wahh bhaiya full among us baaji" channel="prajjwal._" views="10M views"
  />*/}
  
 {
-videos.map(video => (
-<VideoCard title={video.title} channel={video.channel} views={video.views}
-// timestamp={new Date(video.timestamp.seconds * 1000).toLocaleDateString("en-US")}
-channelImage={video.channelImage}
-image={video.image} 
-id={video.id}
-key={video.id} 
+videos.map(({id,data}) => (
+<VideoCard title={data.title} channel={data.channel} views={data.views}
+timestamp={new Date(data.timestamp.seconds * 1000).toLocaleDateString("en-US")}
+channelImage={data.channelImage}
+image={data.image} 
+id={id}
+
 ></VideoCard>
 
 
