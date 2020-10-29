@@ -35,7 +35,7 @@ useEffect(()=>
               <Sidebar/>
 {/*feed*/}
 <div className="homeBlock">
-<h2 style={{color:"white"}}>Featured</h2>
+{/*<h2 style={{color:"white"}}>Featured</h2>*/}
 
 <div className='imgSlide'>
 <Carousel>
