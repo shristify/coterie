@@ -16,13 +16,8 @@ code {
 }
 html,
 body,
-<<<<<<< Updated upstream
-#root,
-.Loginsi {
-=======
 #root{
   background-color:#131921;
->>>>>>> Stashed changes
   width: 100%;
   height: 100%;
 }
