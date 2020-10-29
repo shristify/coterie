@@ -1,0 +1,8 @@
+.videopage{
+    background-color: #131921;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    margin-left: 50px;
+}

@@ -51,9 +51,10 @@ function App() {
     <Route path="/search/:searchKeyword">
       <h1>Search appears here</h1>
     </Route>
-    <Route path="/video/:id">
+    <Route path="/video">
       <h1>video appears here</h1>
-    <VideoPage></VideoPage>
+      <Route path="/video/:id">
+    <VideoPage></VideoPage></Route>
     </Route>
     <Route path="/uploadvideo">
       <UploadVideo/>
