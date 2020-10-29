@@ -6,17 +6,14 @@ import Modal from '@material-ui/core/Modal';
 import {Button, Input} from '@material-ui/core'
 import {Link} from "react-router-dom";
 import firebase from "firebase"
-<<<<<<< Updated upstream
 import "./HomePage.css"
 import { actionTypes } from './reducer';
 import {useStateValue} from './StateProvider'
 
-=======
 import "./Login.css"
 
 import { FcGoogle } from 'react-icons/fc';
 import { AiOutlineFacebook } from 'react-icons/ai';
->>>>>>> Stashed changes
 function getModalStyle() {
     const top = 50;
     const left = 50;
