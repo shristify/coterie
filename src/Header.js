@@ -11,11 +11,11 @@ import {db, auth} from "./firebase";
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import {Button, Input, Avatar} from '@material-ui/core'
-import Sidebar from './Sidebar'
+
 import IconButton from '@material-ui/core/IconButton';
 import {Link} from "react-router-dom";
 import firebase from "firebase"
-import Login from "./Login";
+
 function getModalStyle() {
     const top = 50;
     const left = 50;
@@ -136,6 +136,7 @@ function Header() {
       setOpenSignin(false);
     };
     return (
+      <div>
         <div className ="header" > 
       {/*<Button onClick={() => setOpen(true)} >SignUp</Button>*/}
         <div className="headerLogo"><h1 style={{fontFamily:'Amatic SC',color:"white"}}>Coterie</h1></div>
@@ -160,9 +161,8 @@ function Header() {
   
   <IconButton color="secondary" aria-label="Home">
   <Avatar src ={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} style={{width
-:"10px"}}
-style={{height
-  :"25px"}}/>
+:"30px", height:"30px"}}
+/>
     </IconButton></div>
 <div className="signIn">
 <Modal
@@ -207,12 +207,13 @@ value = {password } onChange={(e)=>setPassword(e.target.value)} ></Input>
   onClick={signinwithfacebook} variant="contained" color="primary">Sign in with facebook</Button>
   </div>
 </Modal>
- {user ? (<div className="logoutButton"><Button variant="contained"  onClick={() => auth.signOut()} color="secondary" >
+ {user ? (<div className="logoutButton" ><Button variant="contained"  onClick={() => auth.signOut()} color="secondary" >
    Logout</Button></div>):
     (<div className="loginContainer">
    <Button  onClick={() => setOpen(true)} ></Button>
     <Button onClick={() => setOpenSignin(true)} ></Button>
           </div>)}  </div>
+          </div>
           </div>
           </div>
           
