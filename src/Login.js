@@ -146,13 +146,14 @@ function Login() {
       >
    <div style={modalStyle} className={classes.paper}>
       <div className="appSignUp">
-    <div className="header" >Register</div>
+    <div className="header1" >Register</div>
       
  <div className="form">
  <div className="form-group">
  
  <Input placeholder="Username" type="username" 
       value = {username} onChange={(e)=>setUsername(e.target.value)} ></Input>
+      </div>
 <div className="form-group">
      <Input placeholder="Email" type="text" 
       value = {email } onChange={(e)=>setEmail(e.target.value)} ></Input>
@@ -170,7 +171,7 @@ function Login() {
      </div>
         </div>
         </div>
-        </div>
+        
         
       </Modal>
 
@@ -180,7 +181,7 @@ function Login() {
       >
        <div style={modalStyle} className={classes.paper}>
       <div className="appSignUp" style={{display:"flex", alignContent:"center",width:"400px"}}>
-      <div className="header" style={{display:"flex", justifyContent:"center",width:"400px"}}>Log In</div>
+      <div className="header1" style={{display:"flex", justifyContent:"center",width:"400px"}}>Log In</div>
       <div className="form">
       <div className="form-group">
        
