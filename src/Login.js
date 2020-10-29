@@ -6,10 +6,17 @@ import Modal from '@material-ui/core/Modal';
 import {Button, Input} from '@material-ui/core'
 import {Link} from "react-router-dom";
 import firebase from "firebase"
+<<<<<<< Updated upstream
 import "./HomePage.css"
 import { actionTypes } from './reducer';
 import {useStateValue} from './StateProvider'
 
+=======
+import "./Login.css"
+
+import { FcGoogle } from 'react-icons/fc';
+import { AiOutlineFacebook } from 'react-icons/ai';
+>>>>>>> Stashed changes
 function getModalStyle() {
     const top = 50;
     const left = 50;
@@ -23,7 +30,7 @@ function getModalStyle() {
   const useStyles = makeStyles((theme) => ({
     paper: {
       position: 'absolute',
-      width: 400,
+      width: 600,
       backgroundColor: theme.palette.background.paper,
       border: '2px solid #000',
       boxShadow: theme.shadows[5],
@@ -142,26 +149,24 @@ function Login() {
       >
    <div style={modalStyle} className={classes.paper}>
       <div className="appSignUp">
-    <div className="header">Register</div>
+    <div className="header" >Register</div>
       
  <div className="form">
  <div className="form-group">
- <label>Username</label>
+ 
  <Input placeholder="Username" type="username" 
       value = {username} onChange={(e)=>setUsername(e.target.value)} ></Input>
-
-            <div className="form-group">
-              <label>Email</label>
-             <Input placeholder="Email" type="text" 
+<div className="form-group">
+     <Input placeholder="Email" type="text" 
       value = {email } onChange={(e)=>setEmail(e.target.value)} ></Input>
       </div>
   <div className="form-group">
-              <label>Password</label>
+          
             <Input placeholder="Password" type="password" 
       value = {password } onChange={(e)=>setPassword(e.target.value)} ></Input>
       </div>
  <div className="footer">
-   <Button onClick={signup} variant="outlined" color="secondary" >
+   <Button onClick={signup} variant="contained" color="secondary" >
      Sign Up</Button>
      </div>
 
@@ -177,17 +182,19 @@ function Login() {
         onClose={handleCloseAgain}
       >
        <div style={modalStyle} className={classes.paper}>
-      <div className="appSignUp">
-      <div className="header">Log In</div>
+      <div className="appSignUp" style={{display:"flex", alignContent:"center",width:"400px"}}>
+      <div className="header" style={{display:"flex", justifyContent:"center",width:"400px"}}>Log In</div>
       <div className="form">
       <div className="form-group">
-              <label>Email</label>
+       
       <Input placeholder="Email" type="text" 
       value = {email } onChange={(e)=>setEmail(e.target.value)} ></Input>
-      </div>
-      <div className="footer">
+
       <Input placeholder="Password" type="password" 
       value = {password } onChange={(e)=>setPassword(e.target.value)} ></Input>
+      </div>
+      <div className="footer">
+   
         <Button onClick={signin} variant="contained" color="secondary">Log In</Button></div>
         </div>
         <br></br>
@@ -195,16 +202,17 @@ function Login() {
         </div>
       
       </Modal>
- {user ? (<div className="logoutButton"><Button variant="contained"  onClick={() => auth.signOut()} color="secondary" >Logout</Button></div>):
+ {user ? (<div className="logoutButton"><Button variant="contained"  onClick={() => auth.signOut()} color="secondary" >
+   Logout</Button></div>):
     (<div className="loginContainer">
-   <Button  onClick={() => setOpen(true)}  >Sign Up</Button>
-    <Button onClick={() => setOpenSignin(true)} >Sign In</Button></div>)}
-    <Button className="Google"
-        onClick={signinwithgoogle} variant="contained" color="primary">Sign in with Google</Button>
-        <hr></hr>
-     
-        <Button className="Google"
-        onClick={signinwithfacebook} variant="contained" color="primary">Sign in with facebook</Button>
+   <Button className="item1" onClick={() => setOpen(true)} style={{color:"black",zIndex:"3"}} >Sign Up</Button>
+    <Button onClick={() => setOpenSignin(true)} style={{color:"black",zIndex:"3"}}>Sign In</Button>
+    <Button className="Google"  style={{fontSize:"30px"}}
+        onClick={signinwithgoogle} ><FcGoogle/></Button>
+        <Button className="Google" style={{fontSize:"30px"}}
+        onClick={signinwithfacebook} ><AiOutlineFacebook/></Button>
+    </div>)}
+    
         </div>
             </div>
           );
