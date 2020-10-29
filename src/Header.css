@@ -87,10 +87,4 @@ border-bottom: 1px solid grey;
     margin-top:8px ;
     margin-left: 10px;
 }
-.appSignUp{
-    display: flex;
-    flex-direction: column;}
-.Google{
-    text-align: center;
-    width: 100%;
-}
+
