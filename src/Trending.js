@@ -10,7 +10,7 @@ import { withRouter } from 'react-router-dom'
 import Messages from "./Messages"
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "shards-ui/dist/css/shards.min.css";
+//import "shards-ui/dist/css/shards.min.css";
 import Header from "./Header"
 import Header1 from "./components/Header1";
 import './App.css';

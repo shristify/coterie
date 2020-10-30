@@ -12,6 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import {Button, Input, Avatar} from '@material-ui/core'
 import Fuse from 'fuse.js'
+
 import IconButton from '@material-ui/core/IconButton';
 import {Link} from "react-router-dom";
 import firebase from "firebase"
