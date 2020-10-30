@@ -1,20 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Open+Sans&display=swap');
 
 .header{
-
-    height: 40px;
-    display: flex !important;
-    align-items: center;
+    height: 50px;
+    display:flex;
     background-color: #131921;
     position: fixed;
-
-    margin-top:2px;
+    top:2px;
+  
+   width:100%;
     z-index: 100;
     color: white;
-
-    margin-right: 0;
-    width: 100%;
-border-bottom: 1px solid grey;
+   border-bottom: 1px solid grey;
     
 }
 .headerSearch{
@@ -87,10 +83,4 @@ border-bottom: 1px solid grey;
     margin-top:8px ;
     margin-left: 10px;
 }
-.appSignUp{
-    display: flex;
-    flex-direction: column;}
-.Google{
-    text-align: center;
-    width: 100%;
-}
+

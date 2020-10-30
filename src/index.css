@@ -16,8 +16,8 @@ code {
 }
 html,
 body,
-#root,
-.Loginsi {
+#root{
+  background-color:#131921;
   width: 100%;
   height: 100%;
 }

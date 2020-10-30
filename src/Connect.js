@@ -13,7 +13,7 @@ function Connect() {
   
     useEffect(()=>
     {
-      db.collection('Posts').onSnapshot(snapshot => {
+      db.collection('Posts').orderBy("timestamp", "desc").onSnapshot(snapshot => {
         setPosts(snapshot.docs.map(doc=> doc.data()))
       })
     },[])
