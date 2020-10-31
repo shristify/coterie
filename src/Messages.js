@@ -11,8 +11,8 @@ function Messages() {
     const[user]=useAuthState(auth)
     return (
         <div className="message">
-            <Sidebar/>
-            <div ><Header/>
+            
+            <div >
             <div className="messageBody">
             <h1 style={{display:'block', fontFamily:"Amatic SC"}}>Send Messages</h1> 
     { user?(<ChatRoom/>):
