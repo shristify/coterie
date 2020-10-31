@@ -1,56 +1,68 @@
-# coterie
-Coterie : Group of individuals with similar interests, here Gaming.
-Team Insomniacs
-Prajjwal Sharma	Project Coterie
-Members
-Shristi Singh 
-Reg no- 20194002
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Vineeta Singh
-Reg no- 20194001
+## Available Scripts
 
-Prajjwal Sharma
-Reg no- 20192089
+In the project directory, you can run:
 
-Problem Statement
-Social Gaming Platform - Coterie
-Implementing a fully functional social platform supporting various multimedia, photos, videos, live streams, for powerful gaming but not restricted to, essentially ringing the creative community closer than ever to their audience.
-Features
-Basic:
-1. User Login/Signup
-2. Forget Password
-3. Post photos/videos of the Game
-4. User can Rate the post (out of 5 stars) basis of gameplay
-5. Comment on post.
-6. Report the post.
-7. Follow gamers and notify on activity.
-8. Search gamers/post and tags.
-9. Support Gamers by Spending coins. (Consider using fake Payments) 
+### `npm start`
 
-Advanced:
-1. Login with fb/google/steam
-2. Allot ranks to gamers
-3. Alert for new posts 
-4. Gamers can live stream on the website
-5. Play videos with controls (play, pause, fast forward)
-6. Chatting peer to peer
-7. Request to message users (accept/reject)
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-USP :  What makes our project different ?
-**hidden**
-Tech Stack
-React JS
-Router - for connecting various pages
-Redux, Hooks - for chat
-Video Js - for video player
-Material UI - for icons and various other frontend
-Fuse js for searching
-Firebase Authentication 
-Firebase Realtime database 
-Razorpay/Stripe integration for payment
-Aws live interaction service for hosting live stream / MongoDB
-Websockets and WebRTC
-(Other tentative requirement Stack)
-Sample wireframe below:
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-GitHub:  https://github.com/confusedcoder1/coterie
+### `npm test`
+
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

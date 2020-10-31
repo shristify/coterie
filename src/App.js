@@ -12,7 +12,7 @@ import Messages from "./Messages"
 import Trending from "./Trending"
 import {Button, Input} from '@material-ui/core'
 import {useAuthState} from 'react-firebase-hooks/auth';
-import ReactPlayer from 'react-player'
+
 import VideoPlayer from 'react-video-js-player'
 import Connect from "./Connect";
 import Login from "./Login";
@@ -24,6 +24,8 @@ import ChatPersonal from './ChatPersonal'
 import VideoPage from "./VideoPage/VideoPage"
 import UploadVideo from './UploadVideo/UploadVideo'
 import {useStateValue } from "./StateProvider"
+import LiveVideo from "./LiveVideo/LiveVideo"
+
 
 function App() {
 
@@ -76,7 +78,10 @@ function App() {
       
       </div>
       </div></Route> 
-
+<Route path="/liveVideo">
+  
+<LiveVideo></LiveVideo>
+</Route>
       
       
      {/*<Route exact path="/" component={withRouter(HomePage)}/>*/}  

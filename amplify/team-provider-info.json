@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-coterie-dev-172451-authRole",
+      "UnauthRoleArn": "arn:aws:iam::556122092385:role/amplify-coterie-dev-172451-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::556122092385:role/amplify-coterie-dev-172451-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-coterie-dev-172451-deployment",
+      "UnauthRoleName": "amplify-coterie-dev-172451-unauthRole",
+      "StackName": "amplify-coterie-dev-172451",
+      "StackId": "arn:aws:cloudformation:us-west-2:556122092385:stack/amplify-coterie-dev-172451/e7532dc0-1b6f-11eb-a05d-0a5e90368503",
+      "AmplifyAppId": "d1zoqyk5o6qn53"
+    },
+    "categories": {
+      "auth": {
+        "coterieebbb4d62": {}
+      }
+    }
+  }
+}
