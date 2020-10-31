@@ -11,6 +11,7 @@ import {db, auth} from "./firebase";
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import {Button, Input, Avatar} from '@material-ui/core'
+import Fuse from 'fuse.js'
 
 import IconButton from '@material-ui/core/IconButton';
 import {Link} from "react-router-dom";
@@ -68,6 +69,20 @@ function Header() {
         //isiliye timely cleanup
       }
     },[user,username])
+
+
+    const [videos, setVideos]=useState([])
+
+
+useEffect(()=>
+{
+  db.collection('VideosUser').orderBy('timestamp').onSnapshot(snapshot => {
+    setVideos(snapshot.docs.map(doc=> ({
+      id:doc.id,
+      data:doc.data()}) ))
+  })
+},[])
+
   useEffect(()=>
   {
     db.collection('posts').onSnapshot(snapshot => {
@@ -75,6 +90,17 @@ function Header() {
     })
   },[])
   
+
+useEffect(() => {
+const fuse =new Fuse(
+  videos,{
+    keys:['data.description', 'data.title']
+  }
+)
+
+const searchResults=fuse.search(searchfunc).map(({item})=>item)
+}, [searchfunc])
+
   const signup=(event)=>{
       
   event.preventDefault();
@@ -147,8 +173,10 @@ function Header() {
                 <input value={searchfunc}
                 onChange={e=>setSearchfunc(e.target.value)}
                 placeholder="search" className='headerSearchInput' type='text' />
-                <Link to={`/search/${searchfunc}`}><IconButton color="secondary" aria-label="Home"> <SearchIcon color ="secondary" className="headerSearchIcon" /> 
-                </IconButton></Link>
+                {/* <Link to={`/search/${searchfunc}`}> */}
+                  <IconButton color="secondary" aria-label="Home"> <SearchIcon color ="secondary" className="headerSearchIcon" /> 
+                </IconButton>
+                {/* </Link> */}
                 {/*logo*/}
         </div>
 <div className="headerOptions"> 
@@ -164,6 +192,8 @@ function Header() {
 :"30px", height:"30px"}}
 />
     </IconButton></div>
+
+    
 <div className="signIn">
 <Modal
   open={open}

@@ -39,6 +39,8 @@ function App() {
   },[])
   
 
+
+
   return (
     <Router>
     <div className="App" >  
@@ -48,9 +50,9 @@ function App() {
      <Route  path="/trending" component={withRouter(Trending)}/>
       
     <Route path="/connect" component={withRouter(Connect)}/>
-    <Route path="/search/:searchKeyword">
+    {/* <Route path="/search/:searchKeyword">
       <h1>Search appears here</h1>
-    </Route>
+    </Route> */}
     <Route path="/video">
       <h1>video appears here</h1>
       <Route path="/video/:id">

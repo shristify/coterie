@@ -9,8 +9,15 @@ import VideoPlayer from "./VideoPlayer/VideoPlayer"
 import VideoCard from "./VideoCard/VideoCard"
 import Carousel from "react-bootstrap/Carousel"; 
 import firebase from "firebase"
-
+import {Button} from '@material-ui/core'
 import {Link} from "react-router-dom";
+// import {loadStripe} from "@stripe/stripe-js"
+// import {Elements} from '@stripe/react-stripe-js'
+
+// const promise = loadStripe(
+//   pk_test_51HhcNeHdCMWk0EMNO6e6u9aYEFt8Wcb6R19nrSyXLDmn9BFxMsT0iNtUzBE3weGbMceM0E2epln0rtgESQ6ZXxk500crXRkcex
+// )
+
 
 function HomePage() {
 const [videos, setVideos]=useState([])
@@ -107,6 +114,10 @@ id={id}
 
 ))
 }
+{/* 
+<Elements stripe={promise}>
+<Button>Hmlo</Button></Elements> */}
+
 </div>
 
 
@@ -122,6 +133,9 @@ id={id}
       
     
   </div>*/}
+
+
+  
   </div></div>
      )
 }
