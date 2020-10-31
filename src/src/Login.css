@@ -1,0 +1,24 @@
+body{
+    background-image:url("https://www.google.com/imgres?imgurl=https%3A%2F%2Fstore.hp.com%2Fapp%2Fassets%2Fimages%2Fuploads%2Fprod%2Fbest-hp-gaming-laptops-for-any-budget-hero1531871685786.jpg%3Fimpolicy%3Dprdimg%26imdensity%3D1%26imwidth%3D600&imgrefurl=https%3A%2F%2Fstore.hp.com%2Fus%2Fen%2Ftech-takes%2Fbest-hp-gaming-laptops-for-any-budget&tbnid=a9HkImjk7DkKLM&vet=12ahUKEwiP_5-hhtLsAhW8JrcAHYJ8B1oQMygHegUIARC3AQ..i&docid=g7cNrSK7cbLcEM&w=640&h=342&q=hp%20the%20game&ved=2ahUKEwiP_5-hhtLsAhW8JrcAHYJ8B1oQMygHegUIARC3AQ");
+}
+.header1{
+    width:400px;
+    display:flex;
+    align-self: center;
+}
+
+.form-group {
+    display:flex;
+    flex-direction: column;
+    align-self: center;
+}
+.appSignUp{
+    display: flex;
+    flex-direction: column;}
+
+    .loginContainer{
+       background-color: antiquewhite;
+        display:flex;
+    margin: auto;
+    }
+   

@@ -1,0 +1,9 @@
+.homePage{
+    display: flex;
+    background-color: #131921;
+}
+.videoHere{
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 100;
+}

@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Open+Sans&display=swap');
+
+.header{
+    height: 50px;
+    display:flex;
+    background-color: #131921;
+    position: fixed;
+    top:2px;
+  
+   width:100%;
+    z-index: 100;
+    color: white;
+   border-bottom: 1px solid grey;
+    
+}
+.headerSearch{
+    display:flex;
+    margin-left: 10px;
+    align-items: center;
+    border-radius: 40px;
+    width:50%;
+    min-width: 250px;
+    max-width: 300px;
+    padding: 10px;
+}
+.headerSearchInput{
+    margin-left: 10px;
+    padding: 12px;
+    border: none;
+    height: 10px;
+    width:100%;
+}
+.headerSearchIcon{
+    padding: 5px;
+    height: 22px !important;
+ 
+}
+.headerMenu{
+    margin-left: 15px;
+}
+.headerLogo{
+    margin-left: 15px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: white;
+
+    text-decoration-line: none;
+    text-decoration-color: none;
+    text-decoration-style: none;
+}
+.headerOptions{
+    display: flex;
+}
+.headerNoti{
+    
+    font-size: 2rem;
+    margin-right: 10px;
+}
+.headerSignin{
+    margin-right: 50px;
+    font-size: 1.35rem;
+    font-family: "Amatic SC";
+    margin-top: 8px;
+    top:8px;
+    margin-bottom: 16px;
+}
+.headerSetting{
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+.headerProfile{
+    font-size: 1.5rem;
+}
+.headerVideoCallIcon{
+    margin-right: 5px;
+    margin-top:5px;
+}
+.loginContainer{
+    margin-top:10px ;
+    margin-left: 10px;
+}
+.logoutButton{
+    margin-top:8px ;
+    margin-left: 10px;
+}
+

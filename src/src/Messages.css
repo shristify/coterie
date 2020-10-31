@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Open+Sans&display=swap');
+
+.message{
+    display: flex;
+}
+.messageBody{
+height: 100%;
+width: 100%;
+background-color:#131921 ;
+box-shadow: -1px 4px 20px rgba(0, 0,0, 0);
+place-items: center;
+color: white;
+}
