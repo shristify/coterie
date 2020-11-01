@@ -46,22 +46,29 @@ function App() {
     <div className="App" >  
   
       <Switch>
-    <Route  path ="/messages" component={withRouter(Messages)}/>
+    {/*<Route  path ="/messages" component={withRouter(Messages)}/>
      <Route  path="/trending" component={withRouter(Trending)}/>
-      
-    <Route path="/connect" component={withRouter(Connect)}/>
+     <Route path="/connect" component={withRouter(Connect)}/>
+  */}
+     <Route path="/messages">  {user?(<Messages/>):(<Login/>)}</Route>
+     <Route path="/trending">  {user?(<Trending/>):(<Login/>)}</Route>
+     <Route path="/connect">  {user?(<Connect/>):(<Login/>)}</Route>
     {/* <Route path="/search/:searchKeyword">
       <h1>Search appears here</h1>
     </Route> */}
     <Route path="/video">
       <h1>video appears here</h1>
       <Route path="/video/:id">
-    <VideoPage></VideoPage></Route>
+      {user?( <VideoPage/>):(<Login/>)}
+   
+   </Route>
     </Route>
     <Route path="/uploadvideo">
-      <UploadVideo/>
+    {user?(<UploadVideo/>):(<Login/>)}
+   
     </Route>
-    <Route path="/personalChat"> <Sidebar/>
+    <Route path="/personalChat"> 
+    <Sidebar/>
     <div className="outBlock">
             
             <div className="body">
@@ -70,8 +77,8 @@ function App() {
     <ChatSidebar></ChatSidebar>
    
     <Route path="/personalChat/:roomId">
-
-    <ChatPersonal></ChatPersonal>
+    {user?(<ChatPersonal/>):(<Login/>)}
+   
     </Route>
       
       </div>
