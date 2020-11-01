@@ -12,7 +12,7 @@ import Messages from "./Messages"
 import Trending from "./Trending"
 import {Button, Input} from '@material-ui/core'
 import {useAuthState} from 'react-firebase-hooks/auth';
-import ReactPlayer from 'react-player'
+
 import VideoPlayer from 'react-video-js-player'
 import Connect from "./Connect";
 import Login from "./Login";
@@ -24,12 +24,32 @@ import ChatPersonal from './ChatPersonal'
 import VideoPage from "./VideoPage/VideoPage"
 import UploadVideo from './UploadVideo/UploadVideo'
 import {useStateValue } from "./StateProvider"
-
+import LiveVideo from "./LiveVideo/LiveVideo"
+import Fuse  from "fuse.js"
+import PeertoPeer from './Ptop/PeertoPeer';
+import {loadStripe } from '@stripe/stripe-js'
+import {Elements} from '@stripe/react-stripe-js'
+import Payment from "./Payment"
+const promise = loadStripe(
+  "pk_test_51HhcNeHdCMWk0EMNO6e6u9aYEFt8Wcb6R19nrSyXLDmn9BFxMsT0iNtUzBE3weGbMceM0E2epln0rtgESQ6ZXxk500crXRkcex"
+)
 function App() {
 
   const[{user1}, dispatch]=useStateValue()
   const [posts,setPosts]=useState([])
   const[user]=useAuthState(auth)
+  const [videos, setVideos]=useState([])
+
+
+  useEffect(()=>
+  {
+    db.collection('VideosUser').orderBy('timestamp').onSnapshot(snapshot => {
+      setVideos(snapshot.docs.map(doc=> ({
+        id:doc.id,
+        data:doc.data()}) ))
+    })
+  },[])
+
 
   useEffect(()=>
   {
@@ -39,6 +59,15 @@ function App() {
   },[])
   
 
+  // useEffect(() => {
+  //   const fuse =new Fuse(
+  //     videos,{
+  //       keys:['data.description', 'data.title']
+  //     }
+  //   )
+    
+  //   const searchResults=fuse.search(searchfunc).map(({item})=>item)
+  //   }, [searchfunc])
 
 
   return (
@@ -46,29 +75,22 @@ function App() {
     <div className="App" >  
   
       <Switch>
-    {/*<Route  path ="/messages" component={withRouter(Messages)}/>
+    <Route  path ="/messages" component={withRouter(Messages)}/>
      <Route  path="/trending" component={withRouter(Trending)}/>
-     <Route path="/connect" component={withRouter(Connect)}/>
-  */}
-     <Route path="/messages">  {user?(<Messages/>):(<Login/>)}</Route>
-     <Route path="/trending">  {user?(<Trending/>):(<Login/>)}</Route>
-     <Route path="/connect">  {user?(<Connect/>):(<Login/>)}</Route>
-    {/* <Route path="/search/:searchKeyword">
+      
+    <Route path="/connect" component={withRouter(Connect)}/>
+    <Route path="/search/:searchKeyword">
       <h1>Search appears here</h1>
-    </Route> */}
+    </Route> 
     <Route path="/video">
       <h1>video appears here</h1>
       <Route path="/video/:id">
-      {user?( <VideoPage/>):(<Login/>)}
-   
-   </Route>
+    <VideoPage></VideoPage></Route>
     </Route>
     <Route path="/uploadvideo">
-    {user?(<UploadVideo/>):(<Login/>)}
-   
+      <UploadVideo/>
     </Route>
-    <Route path="/personalChat"> 
-    <Sidebar/>
+    <Route path="/personalChat"> <Sidebar/>
     <div className="outBlock">
             
             <div className="body">
@@ -77,15 +99,24 @@ function App() {
     <ChatSidebar></ChatSidebar>
    
     <Route path="/personalChat/:roomId">
-    {user?(<ChatPersonal/>):(<Login/>)}
-   
+
+    <ChatPersonal></ChatPersonal>
     </Route>
       
       </div>
       </div></Route> 
-
-      
-      
+<Route path="/liveVideo">
+  
+<LiveVideo></LiveVideo>
+</Route>
+      <Route path="/payment">
+        <Elements stripe={promise}>
+          <Payment></Payment>
+        </Elements>
+      </Route>
+      <Route path="/p2pchat">
+        <PeertoPeer></PeertoPeer>
+      </Route>
      {/*<Route exact path="/" component={withRouter(HomePage)}/>*/}  
   <Route path="/">  {user?(<HomePage/>):(<Login/>)}</Route>  
      </Switch>

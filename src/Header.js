@@ -12,11 +12,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import {Button, Input, Avatar} from '@material-ui/core'
 import Fuse from 'fuse.js'
-
 import IconButton from '@material-ui/core/IconButton';
 import {Link} from "react-router-dom";
 import firebase from "firebase"
-
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import SearchPage from "./SearchPage"
 function getModalStyle() {
     const top = 50;
     const left = 50;
@@ -39,6 +39,8 @@ function getModalStyle() {
   }));
  
 function Header() {
+
+  
     const classes = useStyles();
     const [posts,setPosts]=useState([])
     const[open, setOpen]=useState(false)
@@ -71,17 +73,7 @@ function Header() {
     },[user,username])
 
 
-    const [videos, setVideos]=useState([])
 
-
-useEffect(()=>
-{
-  db.collection('VideosUser').orderBy('timestamp').onSnapshot(snapshot => {
-    setVideos(snapshot.docs.map(doc=> ({
-      id:doc.id,
-      data:doc.data()}) ))
-  })
-},[])
 
   useEffect(()=>
   {
@@ -91,15 +83,7 @@ useEffect(()=>
   },[])
   
 
-useEffect(() => {
-const fuse =new Fuse(
-  videos,{
-    keys:['data.description', 'data.title']
-  }
-)
 
-const searchResults=fuse.search(searchfunc).map(({item})=>item)
-}, [searchfunc])
 
   const signup=(event)=>{
       
@@ -173,12 +157,19 @@ const searchResults=fuse.search(searchfunc).map(({item})=>item)
                 <input value={searchfunc}
                 onChange={e=>setSearchfunc(e.target.value)}
                 placeholder="search" className='headerSearchInput' type='text' />
-                {/* <Link to={`/search/${searchfunc}`}> */}
+                <Link to={`/search/${searchfunc}`}>
                   <IconButton color="secondary" aria-label="Home"> <SearchIcon color ="secondary" className="headerSearchIcon" /> 
                 </IconButton>
-                {/* </Link> */}
+               </Link>
                 {/*logo*/}
         </div>
+
+        <Switch>
+        <Route path="/search/:searchKeyword">
+            <SearchPage style={{color:"white"}}/>
+            <h1>Ram ram ji</h1>
+    </Route> 
+        </Switch>
 <div className="headerOptions"> 
 <Link to="/UploadVideo">
 <div className="headerVideoCallIcon"><IconButton color="secondary" aria-label="Home"><VideoCallIcon  color="secondary"/></IconButton></div>
@@ -254,5 +245,6 @@ value = {password } onChange={(e)=>setPassword(e.target.value)} ></Input>
 
 
 export default Header
+
 
 

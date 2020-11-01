@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import {Link} from "react-router-dom";
 import PeopleIcon from '@material-ui/icons/People';
 import SendIcon from '@material-ui/icons/Send';
+import SettingsInputAntennaIcon from '@material-ui/icons/SettingsInputAntenna';
 export default function Sidebar() {
     return (
         <div className="sidebar">
@@ -15,10 +16,10 @@ export default function Sidebar() {
              <IconButton color="secondary" aria-label="Home">
         <HomeIcon fontSize="medium"/>
       </IconButton></Link>
-      <Link to="/messages">
+      {/* <Link to="/messages">
       <IconButton className="chat" color="secondary" aria-label="Chat">
         <ChatIcon fontSize="medium"/>
-      </IconButton></Link>
+      </IconButton></Link> */}
       <Link to="/personalChat">
       <IconButton className="chat" color="secondary" aria-label="Chat">
         <SendIcon fontSize="medium"/>
@@ -31,6 +32,11 @@ export default function Sidebar() {
       <IconButton className="connect" color="secondary" aria-label="trending">
         <PeopleIcon fontSize="medium" />
       </IconButton></Link>
+      <Link to="/liveVideo">
+      <IconButton className="live" color="secondary" aria-label="live">
+        <SettingsInputAntennaIcon fontSize="medium" />
+      </IconButton></Link>
+
         </div>
         </div>
     )

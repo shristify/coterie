@@ -57,7 +57,7 @@ function Post({ postId, username, caption, imageUrl })
         db.collection("Posts").doc(postId).collection("comments").add({
             text: comment,
             username: user.displayName,
-            timestamp: firebase.forestore.fieldValue   
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()   
         });
         setComment('');
     }
