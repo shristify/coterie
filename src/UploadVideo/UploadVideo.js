@@ -67,7 +67,9 @@ function UploadVideo() {
 
                 
                 })
-                alert("video uploaded successfully")
+               
+               
+               alert("video uploaded successfully")
                 setProgress(0)
                 setVideo(null)
                 setTitle("")

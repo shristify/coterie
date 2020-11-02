@@ -14,8 +14,12 @@ function Connect() {
     useEffect(()=>
     {
       db.collection('Posts').orderBy("timestamp", "desc").onSnapshot(snapshot => {
-        setPosts(snapshot.docs.map(doc=> doc.data()))
+        setPosts(snapshot.docs.map( (doc)=>({
+          id:doc.id,
+          data:doc.data(),
       })
+        ))})
+      
     },[])
     return (
         <div>
@@ -30,8 +34,8 @@ function Connect() {
 
 {
 posts.map(post => (
-<Post username={post.username} caption={post.caption} 
-imageUrl={post.imageUrl} ></Post>
+<Post username={post.data.username} caption={post.data.caption} 
+imageUrl={post.data.imageUrl} postId={post.id} avatar={post.data.avatar}></Post>
 
 
 ))
