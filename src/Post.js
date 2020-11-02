@@ -28,16 +28,20 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: red[500],
     },
   }));
-function Post({ postId, username, caption, imageUrl })
+function Post({ postId, username, caption, imageUrl,avatar })
 {
     const [comments, setComments] = useState([])
 
     const [comment, setComment] = useState('')
     const[user]=useAuthState(auth)
-    useEffect( ()=>{
-         if (postId) {
+const {photoURL} =auth.currentUser
 
-            db.collection("posts")
+
+    useEffect( ()=>{
+      let unsubscribe;
+         if (postId) {
+unsubscribe=
+            db.collection("Posts")
             .doc(postId)
             .collection("comments")
             .orderBy('timestamp', 'desc')
@@ -48,6 +52,7 @@ function Post({ postId, username, caption, imageUrl })
 
 
         return () =>{
+          unsubscribe();
         };
     }, [postId]);
 
@@ -57,14 +62,17 @@ function Post({ postId, username, caption, imageUrl })
         db.collection("Posts").doc(postId).collection("comments").add({
             text: comment,
             username: user.displayName,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp()   
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()   ,
+            avatar:photoURL
         });
         setComment('');
     }
     return (
         <div className="post">
             <div className="post__header">
-                <Avatar className="post__avatar"></Avatar>
+                <Avatar className="post__avatar"
+                src=""
+                ></Avatar>
 
             <h3>{username}</h3>
 
@@ -72,10 +80,12 @@ function Post({ postId, username, caption, imageUrl })
 
             <img className="post__image" src={imageUrl} alt=""/>
             <h4 className='post__text'><strong>{username} </strong>{caption} </h4>
-            <div className="post__comments">
+            <div className="post__comments" style={{color:"white"}}>
                 {comments.map((comment) => (
                     <p>
-                        <strong>{comment.username}</strong> {comment.text}
+                      <Avatar
+                src={comment.avatar}
+                ></Avatar> <strong>{comment.username}</strong> {comment.text}
                     </p>
                 ))}
             </div>
@@ -90,13 +100,13 @@ function Post({ postId, username, caption, imageUrl })
                 />
                 <button
                 className="post__button"
-
+                disabled={!comment}
                 type="submit"
                 onClick={postComment}
                 >
                 Post</button>
             </form>
-
+            
         </div>
     ) 
 }

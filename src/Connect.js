@@ -35,7 +35,7 @@ function Connect() {
 {
 posts.map(post => (
 <Post username={post.data.username} caption={post.data.caption} 
-imageUrl={post.data.imageUrl} postId={post.id} ></Post>
+imageUrl={post.data.imageUrl} postId={post.id} avatar={post.data.avatar}></Post>
 
 
 ))

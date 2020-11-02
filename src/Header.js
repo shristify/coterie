@@ -17,6 +17,7 @@ import {Link} from "react-router-dom";
 import firebase from "firebase"
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import SearchPage from "./SearchPage"
+import VideoCard from "./VideoCard/VideoCard"
 function getModalStyle() {
     const top = 50;
     const left = 50;
@@ -52,6 +53,21 @@ function Header() {
     const[openSignin, setOpenSignin]=useState('')
     const [searchfunc,setSearchfunc]=useState("")
     const {uid,photoURL, displayName}=auth.currentUser
+
+
+    const [videos, setVideos]=useState([])
+
+
+    useEffect(()=>
+    {
+      db.collection('VideosUser').orderBy('timestamp').onSnapshot(snapshot => {
+        setVideos(snapshot.docs.map(doc=> ({
+          id:doc.id,
+          data:doc.data()}) ))
+      })
+    },[])
+    
+
     useEffect(()=>{
       const unsubscribe=auth.onAuthStateChanged((authUser)=>{
         if(authUser){
@@ -142,6 +158,22 @@ function Header() {
       .catch((error)=>alert(error.message))
     }
 
+    useEffect(() => {
+      const fuse =new Fuse(
+        videos,
+        {
+          keys:
+          ['data.description', 'data.title']
+        }
+      )
+      const results = fuse.search(searchfunc).map(({ item }) => item);
+
+      if (searchfunc.length > 3 && results.length > 0) {
+        setVideos(results);
+      }
+
+    }, [searchfunc])
+
     const handleCloseAgain = () => {
       setOpenSignin(false);
     };
@@ -164,12 +196,7 @@ function Header() {
                 {/*logo*/}
         </div>
 
-        <Switch>
-        <Route path="/search/:searchKeyword">
-            <SearchPage style={{color:"white"}}/>
-            <h1>Ram ram ji</h1>
-    </Route> 
-        </Switch>
+       
 <div className="headerOptions"> 
 <Link to="/UploadVideo">
 <div className="headerVideoCallIcon"><IconButton color="secondary" aria-label="Home"><VideoCallIcon  color="secondary"/></IconButton></div>

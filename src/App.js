@@ -30,6 +30,7 @@ import PeertoPeer from './Ptop/PeertoPeer';
 import {loadStripe } from '@stripe/stripe-js'
 import {Elements} from '@stripe/react-stripe-js'
 import Payment from "./Payment"
+import VideoCard from "./VideoCard/VideoCard"
 const promise = loadStripe(
   "pk_test_51HhcNeHdCMWk0EMNO6e6u9aYEFt8Wcb6R19nrSyXLDmn9BFxMsT0iNtUzBE3weGbMceM0E2epln0rtgESQ6ZXxk500crXRkcex"
 )
@@ -79,9 +80,7 @@ function App() {
      <Route  path="/trending" component={withRouter(Trending)}/>
       
     <Route path="/connect" component={withRouter(Connect)}/>
-    <Route path="/search/:searchKeyword">
-      <h1>Search appears here</h1>
-    </Route> 
+    
     <Route path="/video">
       <h1>video appears here</h1>
       <Route path="/video/:id">
@@ -117,6 +116,23 @@ function App() {
       <Route path="/p2pchat">
         <PeertoPeer></PeertoPeer>
       </Route>
+      <Route path="/search/:searchKeyword">
+        
+        {
+videos.map(({id,data}) => (
+<VideoCard title={data.title} channel={data.channel} views={data.views}
+timestamp={new Date(data.timestamp.seconds * 1000).toLocaleDateString("en-US")}
+channelImage={data.channelImage}
+image={data.image} 
+id={id}
+key={id}
+
+></VideoCard>
+
+
+))
+} 
+    </Route> 
      {/*<Route exact path="/" component={withRouter(HomePage)}/>*/}  
   <Route path="/">  {user?(<HomePage/>):(<Login/>)}</Route>  
      </Switch>
