@@ -1,6 +1,6 @@
 # coterie
 Coterie : Group of individuals with similar interests, here Gaming.
-Team Insomniacs
+## Team Insomniacs
 Prajjwal Sharma	Project Coterie
 Members
 Shristi Singh 
