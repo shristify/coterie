@@ -37,8 +37,8 @@ Advanced:
 7. Request to message users (accept/reject)
 
 USP :  What makes our project different ?
-**hidden**
-Tech Stack
+
+##3Tech Stack
 React JS
 Router - for connecting various pages
 Redux, Hooks - for chat
@@ -52,5 +52,9 @@ Aws live interaction service for hosting live stream / MongoDB
 Websockets and WebRTC
 (Other tentative requirement Stack)
 Sample wireframe below:
+
+Abstract - https://drive.google.com/file/d/1HGEtNIyahZiG__5TKohnLplLw010-FXQ/view?usp=sharing
+![WhatsApp Image 2021-11-21 at 5 29 22 PM](https://user-images.githubusercontent.com/59313731/142761048-6bd1f83c-8144-4646-b350-b8ddb8214872.jpeg)
+
 
 GitHub:  https://github.com/confusedcoder1/coterie
